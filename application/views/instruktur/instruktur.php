@@ -101,11 +101,11 @@
                                           <td style="text-align: center;">
                                             <!-- <a href="#" id="<?php //echo $key->id; ?>" class="btn btn-primary btn-mini view_data" title="Lihat Detail" data-toggle="modal" data-target="#myModal"><i class="icon icon-eye-open"></i></a> --> 
                                             
-                                            <a href="<?php echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> 
+                                            <a href="<?php echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="mdi mdi-eye"></i></a> 
                                             <!-- <button type="button" class="btn btn-success btn-mini" data-toggle="modal" data-target="#modal-tambah" title="Lihat Detail"><i class="icon icon-eye-open"></i></button> -->
                                             <!-- <a href="" data id="<?php //echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini view_data" data-toggle="modal" data-target="#modal-edit" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> -->
 
-                                            <a href="<?php echo base_url(). 'index.php/Instruktur/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="icon icon-trash"></i></a>
+                                            <a href="<?php echo base_url(). 'index.php/Instruktur/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="mdi mdi-delete"></i></a>
                                           </td>
                                         </tr>
                                        <?php $i++;} ?>
