@@ -1,6 +1,6 @@
 <div id="content">
 
- <!-- MODAL DELETE START -->
+  <!-- MODAL DELETE START -->
    <div class="modal fade" id="myModalDelete">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -33,58 +33,117 @@
   </div>
   <!-- STOP -->
 
+<div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Informasi Kumpulan Silabus</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Informasi Kumpulan Silabus</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Daftar Silabus</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                                      <!-- <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                          <div class="dataTables_length" id="zero_config_length">
+                                            <label>Show <select name="zero_config_length" aria-controls="zero_config" class="form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                          <div id="zero_config_filter" class="dataTables_filter">
+                                            <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="zero_config"></label></div>
+                                          </div>
+                                        </div> -->
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <a class="btn btn-secondary btn-sm" href="<?php echo base_url('index.php/Silabus/AddSlbs'); ?>"><i class="fas fa-plus"></i> Tambah File Silabus</a>
+                                            <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info" style="margin-top: 1%">
+                                        <thead>
+                                            <tr role="row">
+                                              <th>No</th>
+                                              <th width="30%">Judul </th>
+                                              <th>Kategori Silabus</th>
+                                              <th>Deskripsi Silabus</th>
+                                              <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>               
+                                        <?php $i=1; foreach ($slbs as $key ) { ?>
+                         
+                                        <tr>
+                                          <td style="text-align: center;"><?php echo $i; ?></td>
+                                          <td><?php echo $key->judul; ?></td>
+                                          <td><?php echo $key->kategori; ?></td>
+                                          <td><?php echo $key->ringkasan; ?></td>
+                                          <td style="text-align: center;">
+                                            <!-- <a href="#" id="<?php //echo $key->id; ?>" class="btn btn-primary btn-mini view_data" title="Lihat Detail" data-toggle="modal" data-target="#myModal"><i class="icon icon-eye-open"></i></a> --> 
+                                            
+                                            <a href="<?php echo base_url(). 'index.php/Silabus/updateSlbs/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="mdi mdi-eye"></i></a> 
+                                            <!-- <button type="button" class="btn btn-success btn-mini" data-toggle="modal" data-target="#modal-tambah" title="Lihat Detail"><i class="icon icon-eye-open"></i></button> -->
+                                            <!-- <a href="" data id="<?php //echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini view_data" data-toggle="modal" data-target="#modal-edit" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> -->
 
-  <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Daftar Silabus Pelatihan</a> </div>
-    <h1>Silabus Pelatihan Teknik</h1>
-  </div>
-  <div class="container-fluid">
-   <hr>
-    <div class="row-fluid">
-      <div class="span12">
-        
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
-            
-            <a class="label btn-inverse" href="<?php echo base_url('index.php/Silabus/AddSlbs'); ?>"><i class="icon-plus"></i> Tambah Data Silabus</a> </div>
-          <div class="widget-content ">
-            <table class="table table-bordered table-striped with-check" id="dataTable">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th width="30%">Judul </th>
-                  <th>Kategori Silabus</th>
-                  <th>Deskripsi Silabus</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-               <tr>
-                 <?php $i=1; foreach ($slbs as $key ) { ?>
-                  <td style="text-align: center;"><?php echo $i; ?></td>
-                  <td><?php echo $key->judul; ?></td>
-                  <td><?php echo $key->kategori; ?></td>
-                  <td><?php echo $key->ringkasan; ?></td>
-                  <td style="text-align: center;">
-                    <!-- <a href="#" id="<?php //echo $key->id; ?>" class="btn btn-primary btn-mini view_data" title="Lihat Detail" data-toggle="modal" data-target="#myModal"><i class="icon icon-eye-open"></i></a> --> 
-                    
-                    <a href="<?php echo base_url(). 'index.php/Silabus/updateSlbs/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> 
-                    <!-- <button type="button" class="btn btn-success btn-mini" data-toggle="modal" data-target="#modal-tambah" title="Lihat Detail"><i class="icon icon-eye-open"></i></button> -->
-                    <!-- <a href="" data id="<?php //echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini view_data" data-toggle="modal" data-target="#modal-edit" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> -->
+                                            <a href="<?php echo base_url(). 'index.php/Silabus/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="mdi mdi-delete"></i></a>
+                                          </td>
+                                        </tr>
+                                       <?php $i++;} ?>
+                                       
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-5">
+                                    <div class="dataTables_info" id="zero_config_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                                  </div>
+                                  <div class="col-sm-12 col-md-7">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="zero_config_paginate">
+                                      <ul class="pagination">
+                                        <li class="paginate_button page-item previous disabled" id="zero_config_previous"><a href="#" aria-controls="zero_config" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                        <li class="paginate_button page-item active"><a href="#" aria-controls="zero_config" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                        <li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                        <li class="paginate_button page-item next" id="zero_config_next"><a href="#" aria-controls="zero_config" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
 
-                    <a href="<?php echo base_url(). 'index.php/' ?>" class="btn btn-danger btn-mini" title="Hapus Data"><i class="icon icon-trash"></i></a>
-                  </td>
-                </tr>
-     
-               <?php $i++;} ?>
-              </tbody>
-            </table>
-        </div>
-      </div>
-    </div>
-  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+
+
 </div>
-
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
  <!-- jQuery DataTables JS CDN -->
  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -111,9 +170,9 @@
                     success: function(data){
                      // Print the fetched data of the selected phone in the section called #phone_result 
                      // within the Bootstrap modal
-                        $('#isiModal').html(data);
+                        $('#phone_result').html(data);
                         // Display the Bootstrap modal
-                        $('#myModal').modal('show');
+                        $('#modal-edit').modal('show');
                     }
                     // error: console.log();
              });

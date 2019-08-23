@@ -74,6 +74,14 @@ class M_silabus extends CI_Model {
 	// 	// echo json_encode($data);
 	// }
 
+    public function deleteInstrukturData($id)
+    {
+
+        $this->db->where('id', $id);
+        $this->db->delete($this->_table);
+        // echo json_encode($data);
+    }
+
 }
 
 /* End of file modelName.php */

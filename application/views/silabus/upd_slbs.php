@@ -16,10 +16,8 @@ error_reporting(E_ALL);
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/matrix-media.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-wysihtml5.css" />
 <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1394306-6"></script>
-<script src="<?php echo base_url(); ?>assets/js/analytics.js"></script><!-- /site analytics -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-  <style type="text/css">
+   <style type="text/css">
     .imagebox .alert {
       transform: translateY(130%);
       transition-timing-function: ease-in;
@@ -97,107 +95,176 @@ error_reporting(E_ALL);
 </style>
 </head>
 <body>
-<div id="content">
-<div id="content-header">
-  <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Daftar Instruktur Pelatihan</a> <a href="#" class="current">Lihat Data Instruktur</a> </div>
-  <h1>Detail Data Instruktur</h1>
-</div>
-<div class="container-fluid">
-  <hr>
-  <div class="row-fluid">
-  <!--   <div class="span6"> -->
-      <div class="widget-box">
-        <dv class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-          <h5>Informasi Umum</h5>
-        </div>
-        <div class="widget-content nopadding">
-           <?php foreach($slbs as $key){ ?>
-          <form action="<?php echo base_url(). 'index.php/Silabus/UpdatingSlbs/'.$key->id; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
-            <div class="control-group">
-              <label class="control-label">Judul Silabus : </label>
-              <div class="controls">
-                <!-- <input type="hidden" class="span11" name="id_silabus" value="<?php //$id= 'SLBS'.rand(); ?>" /> -->
-                <input type="text" class="span11" placeholder="Masukan Judul Silabus" name="judul_silabus"  readonly="true" ondblclick="this.readOnly='';" value="<?php echo $key->judul; ?>"/>
-              </div>
-            </div>
-             <div class="control-group">
-              <label class="control-label">Spesialisasi :</label>
-              <div class="controls">
-                <select placeholder="Pilih Spesialisasi" name="kategori_file" required>
-                  <option>Teknik Industri</option>
-                  <option>Teknik Mesin</option>
-                  <option>Teknik Kelistrikan</option>
-                  <option>Teknik Informatika</option>
-                  <option>Teknik Tekstil</option>
-                <option value="<?php echo $i->spesialisasi; ?>" selected><?php echo $key->kategori; ?></option>
-                </select>
-              </div>
-            </div>
-           <div class="control-group">
-              <label class="control-label">Ringkasan :</label>
-              <div class="controls">
-                <textarea class="span11" name="ringkasan"  readonly="true" ondblclick="this.readOnly='';" value="<?php echo $key->ringkasan; ?>"></textarea>
-                <span class="help-block">Deskripsi tambahan</span>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <div class="controls">
-                <div id="pdf1"></div>
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Ubah File : </label>
-              <div class="controls">
-                <input type="file" name="userfile"  readonly="true" ondblclick="this.readOnly='';" />
+      <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Detail Silabus</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Silabus</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Detail Silabus</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
-             
-        <div class="form-actions">
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                           <?php foreach($slbs as $key){ ?>
+                            <form action="<?php echo base_url(). 'index.php/Silabus/UpdatingSlbs/'.$key->id; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <h4 class="card-title">Personal Info</h4>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Judul Silabus : </label>
+                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Lengkap" name="judul_silabus"  readonly="true" ondblclick="this.readOnly='';" value="<?php echo $key->judul; ?>">
+                                    </div>
+                                                                 
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 text-right col-form-label">Ringkasan :</label>
+                                       <textarea class="col-sm-10" name="ringkasan"  readonly="true" ondblclick="this.readOnly='';" value="<?php echo $key->ringkasan; ?>"></textarea>
+                                  </div>
+                                   
+                                   
+                                </div>
+                                
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- editor -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Preview Silabus</h4>
+                                <!-- Create the editor container -->
+                                  <div class="form-group row">
+                                    <div class="col-2"></div>
+                                  <div id="pdf1" class="col-10"></div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label class="col-sm-2 text-right col-form-label">Upload File Terbaru : </label>
+                                    <div class="col-md-10">
+                                        
+                                            <label><?php echo $key->dokumen_file; ?></label>&nbsp<input type="file"  name="image">
+                                    
+                                    </div>
 
-
-              <button type="submit" class="btn btn-success pull-right">Save</button>
-           
-          </form>
-          
-          <a href="<?php echo base_url('index.php/silabus'); ?>" class="btn btn-info ">Back</a>
+                              <div class="border-top">
+                                    <div class="card-body">
+                                        <a href="<?php echo base_url('index.php/silabus'); ?>" class="btn btn-danger ">Cancel</a>
+                                        <button type="submit" class="btn btn-success">Save</button>
+                                    </div>
+                                </div>
+                            </form> 
+                          <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
             </div>
-            <?php } ?>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
-      </div>
-    <!-- </div> -->
- 
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    
+    <script>
+        //***********************************//
+        // For select 2
+        //***********************************//
+        $(".select2").select2();
 
-  </div>
-</div></div>
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part--> 
-<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/jquery.ui.custom.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/bootstrap-colorpicker.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/jquery.toggle.buttons.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/masked.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/jquery.uniform.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/matrix.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/matrix.form_common.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/wysihtml5-0.3.0.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/jquery.peity.min.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/bootstrap-wysihtml5.js"></script> 
-<script>
-  $('.textarea_editor').wysihtml5();
-</script>
+        /*colorpicker*/
+        $('.demo').each(function() {
+        //
+        // Dear reader, it's actually very easy to initialize MiniColors. For example:
+        //
+        //  $(selector).minicolors();
+        //
+        // The way I've done it below is just for the demo, so don't get confused
+        // by it. Also, data- attributes aren't supported at this time...they're
+        // only used for this demo.
+        //
+        $(this).minicolors({
+                control: $(this).attr('data-control') || 'hue',
+                position: $(this).attr('data-position') || 'bottom left',
 
-</body>
-<footer> 
+                change: function(value, opacity) {
+                    if (!value) return;
+                    if (opacity) value += ', ' + opacity;
+                    if (typeof console === 'object') {
+                        console.log(value);
+                    }
+                },
+                theme: 'bootstrap'
+            });
+
+        });
+        /*datwpicker*/
+        jQuery('.mydatepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+    </script>
+
+    <footer> 
   <?php foreach($slbs as $key){ ?>
-  <script src="<?php echo base_url(); ?>assets/js/pdfobject.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js-extra/pdfobject.min.js"></script>
   <script>
 
   var options = {
@@ -235,4 +302,5 @@ forEach(imageboxs, function(index, value) {
 </script>
   </footer>
 
-</html>
+  </footer>
+

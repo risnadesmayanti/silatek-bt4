@@ -23,7 +23,7 @@ class Silabus extends CI_Controller {
 	{
 		$this->load->view('templates/header');
 		$this->load->view('silabus/add_slbs');
-		$this->load->view('templates/footer');
+		// $this->load->view('templates/footer');
 	}
 
 	public function load_file()
@@ -94,6 +94,14 @@ class Silabus extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('silabus/upd_slbs',$data);
 		// print_r($data);
+	}
+
+	public function delete($id)
+	{
+		//$where = array('id' => $id);
+		$this->M_silabus->deleteInstrukturData($id);
+		redirect('/silabus');
+		//redirect('crud/index');
 	}
 
 }
