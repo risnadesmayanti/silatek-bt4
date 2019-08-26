@@ -36,7 +36,7 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+            <!-- ============================================================= -->
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -60,8 +60,9 @@
                                     </div>                                   
                                     <div class="form-group row">
                                     <label class="col-sm-2 text-right col-form-label">Tanggal Lahir : </label>
-                                      <input type="text" class="form-control col-sm-10 mydatepicker" placeholder="mm/dd/yyyy" name="tgl_lahir">
-                                </div>
+                                      <input type="text" class="form-control col-sm-10" id="datepicker-autoclose" placeholder="mm/dd/yyyy" name="tgl_lahir">
+                                    </div>   
+                                    
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right control-label col-form-label">Alamat Lengkap :</label>
                                         <!-- <div class="col-sm-10"> -->
@@ -159,50 +160,6 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    
-    <script>
-        //***********************************//
-        // For select 2
-        //***********************************//
-        $(".select2").select2();
-
-        /*colorpicker*/
-        $('.demo').each(function() {
-        //
-        // Dear reader, it's actually very easy to initialize MiniColors. For example:
-        //
-        //  $(selector).minicolors();
-        //
-        // The way I've done it below is just for the demo, so don't get confused
-        // by it. Also, data- attributes aren't supported at this time...they're
-        // only used for this demo.
-        //
-        $(this).minicolors({
-                control: $(this).attr('data-control') || 'hue',
-                position: $(this).attr('data-position') || 'bottom left',
-
-                change: function(value, opacity) {
-                    if (!value) return;
-                    if (opacity) value += ', ' + opacity;
-                    if (typeof console === 'object') {
-                        console.log(value);
-                    }
-                },
-                theme: 'bootstrap'
-            });
-
-        });
-        /*datwpicker*/
-        jQuery('.mydatepicker').datepicker();
-        jQuery('#datepicker-autoclose').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-
-    </script>
+   
 </body>
 
-</html>

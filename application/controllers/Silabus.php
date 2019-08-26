@@ -81,7 +81,7 @@ class Silabus extends CI_Controller {
 			echo print_r($data);
 			echo "</pre>";
 		$this->M_silabus->addSlbs($data);
-		redirect('/silabus');
+		// redirect('/silabus');
 	}
 
 

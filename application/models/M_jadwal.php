@@ -4,12 +4,12 @@
 	
 	class M_jadwal extends CI_Model {
 	
-		private $_table = "products";
+		private $_table = "tb_pelatihan";
 
 
 	    public function getAll()
   		{
-        return $this->db->get($this->_table)->result();
+        	return $this->db->get($this->_table)->result();
    		}
 
 	

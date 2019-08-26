@@ -15,13 +15,14 @@
     <link href="<?php echo base_url(); ?>assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/dist/css/style.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/jquery-minicolors/jquery.minicolors.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/libs/quill/dist/quill.snow.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/libs/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/libs/jquery-minicolors/jquery.minicolors.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/libs/quill/dist/quill.snow.css">
+
     <!-- Untuk Page Jadwal -->
-    <link href="../../assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
-    <link href="../../assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -230,7 +231,7 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Dashboard'); ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard  </span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Instruktur'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Daftar Instruktur</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-calendar-range"></i><span class="hide-menu">Jadwal Pelatihan</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Jadwal'); ?>" aria-expanded="false"><i class="mdi mdi-calendar-range"></i><span class="hide-menu">Jadwal Pelatihan</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Silabus'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Daftar Silabus</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-server"></i><span class="hide-menu">Semua Pelatihan</span></a></li>
                         

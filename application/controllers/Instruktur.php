@@ -30,7 +30,7 @@ class Instruktur extends CI_Controller {
 	{
 		$this->load->view('templates/header');
 		$this->load->view('instruktur/add_ins');
-		// $this->load->view('templates/footer');
+		$this->load->view('templates/footer');
 	}
 
 	public function AddingIns()
@@ -102,6 +102,7 @@ class Instruktur extends CI_Controller {
 		$data['instruktur'] = $this->M_instruktur->edit_data($where,'user')->result();
 		$this->load->view('templates/header');
 		$this->load->view('instruktur/upd_ins',$data);
+		$this->load->view('templates/footer');
 		// print_r($data);
 	}
 
