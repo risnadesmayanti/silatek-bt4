@@ -41,7 +41,7 @@
                                                 <div class="col-md-12">
                                                     <div id="calendar-events" class="">
                                                       <?php foreach ($pelatihan as $key) { ?>
-                                                        <div class="calendar-events m-b-20" data-class="bg-<?php echo $key->category;?>"><i class="fa fa-circle text-<?php echo $key->category;?> m-r-10"></i><?php echo $key->nama;?></div>
+                                                        <div class="calendar-events m-b-20" data-class="bg-info"><i class="fa fa-circle text-<?php echo $key->color;?> m-r-10"></i><?php echo $key->nama;?></div>
                                                       <?php } ?>
                                                         
                                                     </div>
@@ -101,24 +101,14 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label class="control-label">Choose Category Color</label>
-                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category">
-                                                <option value="success">Teknik Mesin</option>
-                                                <option value="danger">Teknik Listrik</option>
-                                                <option value="info">Teknik Sipil</option>
-                                                <option value="primary">Teknik Kimia</option>
-                                                <option value="warning">Teknik Industri</option>
-                                                <option value="inverse">Perbetonan</option>
+                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category_color">
+                                                <option value="success">Success</option>
+                                                <option value="danger">Danger</option>
+                                                <option value="info">Info</option>
+                                                <option value="primary">Primary</option>
+                                                <option value="warning">Warning</option>
+                                                <option value="inverse">Inverse</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">Tanggal Mulai Pelatihan</label>
-                                            <input type="text" value="2012-05-15 21:05" id="datetimepicker" class="form-control clsDatePicker">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="control-label">Tanggal Selesai Pelatihan</label>
-                                            <input type="text" class="form-control col-sm-10" id="datepicker-autoclose" placeholder="mm/dd/yyyy" name="end">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -144,9 +134,6 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-            <script language="JavaScript" type="text/javascript">
-                
-            </script>
     <script src="<?php echo base_url(); ?>assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/jquery.ui.touch-punch-improved.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/jquery-ui.min.js"></script>
@@ -166,38 +153,4 @@
     <script src="<?php echo base_url(); ?>assets/libs/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/pages/calendar/cal-init.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js-extra/bootstrap-datetimepicker.de.js" charset="UTF-8"></script>
-    <script type="text/javascript">
-        $('#datetimepicker').datetimepicker({
-    format: 'yyyy-mm-dd hh:ii'
-});
-    </script>
-    <script type="text/javascript">
-    var events = <?php echo json_encode($data) ?>;
-    
-    var date = new Date()
-    var d    = date.getDate(),
-        m    = date.getMonth(),
-        y    = date.getFullYear()
-           
-    $('#calendar').fullCalendar({
-      displayEventTime: false,
-      eventLimit: true,
-
-    
-      header    : {
-        left  : 'prev,next today',
-        center: 'title',
-        right : 'month,agendaWeek,agendaDay'
-      },
-      buttonText: {
-        today: 'today',
-        month: 'month',
-        week : 'week',
-        day  : 'day'
-      },
-      events    : events
-    })
-
-    </script>
 </body>

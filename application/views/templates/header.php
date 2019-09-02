@@ -23,6 +23,11 @@
     <!-- Untuk Page Jadwal -->
     <link href="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
+    <style type="text/css">
+        .clsDatePicker {
+            z-index: 100000;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

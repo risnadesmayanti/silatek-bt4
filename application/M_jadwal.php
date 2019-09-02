@@ -16,11 +16,6 @@
 		{
 
 			$this->db->insert($this->_table,$data);
-		}
-
-		public function get_events($start, $end)
-		{
-		    return $this->db->where("start_date >=", $start)->where("end_date <=", $end)->get($this->_table);
 		}	
 
 	
