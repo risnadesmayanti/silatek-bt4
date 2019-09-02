@@ -13,6 +13,7 @@ class Jadwal extends CI_Controller {
             $data['data'][$key]['start'] = $value->start;
             $data['data'][$key]['end'] = $value->end;
             $data['data'][$key]['color'] = $value->color;
+            $data['data'][$key]['id'] = $value->id;
         }
 
 		$this->load->view('templates/header');
@@ -88,6 +89,14 @@ class Jadwal extends CI_Controller {
             echo "</pre>";
 		$this->M_jadwal->addJadwal($data);
 		redirect('/Jadwal');
+	}
+
+	public function delete($id)
+	{
+		//$where = array('id' => $id);
+		$this->M_jadwal->deleteJadwal($id);
+		redirect('/Jadwal');
+		//redirect('crud/index');
 	}
 
 }

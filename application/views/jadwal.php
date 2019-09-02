@@ -67,6 +67,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- BEGIN MODAL -->
                 <div class="modal none-border" id="my-event">
                     <div class="modal-dialog">
@@ -84,6 +85,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!-- Modal Add Category -->
                 <div class="modal fade none-border" id="add-new-event">
                     <div class="modal-dialog">
@@ -114,11 +117,22 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="control-label">Tanggal Mulai Pelatihan</label>
-                                            <input type="text" value="2012-05-15 21:05" id="datetimepicker" class="form-control clsDatePicker">
+                                            <div class="input-group" >
+                                    <input name="start" type="text" class="form-control" id="example" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+
                                         </div>
                                         <div class="col-md-6">
                                             <label class="control-label">Tanggal Selesai Pelatihan</label>
-                                            <input type="text" class="form-control col-sm-10" id="datepicker-autoclose" placeholder="mm/dd/yyyy" name="end">
+                                             <div class="input-group" >
+                                            <input name="end" type="text" class="form-control" id="example2" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -166,11 +180,14 @@
     <script src="<?php echo base_url(); ?>assets/libs/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/pages/calendar/cal-init.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js-extra/bootstrap-datetimepicker.de.js" charset="UTF-8"></script>
-    <script type="text/javascript">
-        $('#datetimepicker').datetimepicker({
-    format: 'yyyy-mm-dd hh:ii'
-});
+    <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/js-extra/datetimepicker/bootstrap-datetimepicker.de.js" charset="UTF-8"></script> -->
+    <script src="<?php echo base_url(); ?>assets/js-extra/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(function () {
+          $('#example').datetimepicker();
+          $('#example2').datetimepicker();
+
+        });
     </script>
     <script type="text/javascript">
     var events = <?php echo json_encode($data) ?>;
@@ -196,7 +213,8 @@
         week : 'week',
         day  : 'day'
       },
-      events    : events
+      events    : events,
+
     })
 
     </script>

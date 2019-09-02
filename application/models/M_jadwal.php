@@ -23,6 +23,15 @@
 		    return $this->db->where("start_date >=", $start)->where("end_date <=", $end)->get($this->_table);
 		}	
 
+		 public function deleteJadwal($id)
+    {
+
+        $this->db->where('id', $id);
+        $this->db->delete($this->_table);
+        // echo json_encode($data);
+    }
+
+
 	
 	}	
 

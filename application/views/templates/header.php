@@ -23,6 +23,7 @@
     <!-- Untuk Page Jadwal -->
     <link href="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/js-extra/datetimepicker/css/bootstrap-datetimepicker.min.css">
     <style type="text/css">
         .clsDatePicker {
             z-index: 100000;
