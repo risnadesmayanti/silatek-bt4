@@ -76,11 +76,21 @@
                                 <h4 class="modal-title"><strong>Add Event</strong></h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             </div>
-                            <div class="modal-body"></div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="form-group form-md">
+                                            <label for="ModalIsi">Jadwal Pelatihan : </label>
+                                            <div id="ModalIsi"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="modal-footer">
+                                <input type="hidden" id="ModalId" />
                                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                                <button type="button" class="btn btn-danger event-delete waves-effect waves-light" data-dismiss="modal">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -198,8 +208,11 @@
         y    = date.getFullYear()
            
     $('#calendar').fullCalendar({
-      displayEventTime: false,
-      eventLimit: true,
+        selectable: true,
+        selectHelper: true,
+        editable: true,
+        displayEventTime: false,
+        eventLimit: true,
 
     
       header    : {
@@ -213,6 +226,35 @@
         week : 'week',
         day  : 'day'
       },
+
+      eventClick: function (event, jsEvent, view) {
+        $('.modal-title').html('Detail Jadwal');
+        $('#ModalIsi').html(event.title);
+        $('#ModalId').val(event.id);
+
+        $('#my-event').modal();
+
+        $('.event-delete').click(function (events) {
+            var id = $('#ModalId').val();
+
+          $.ajax({
+           type:"POST",
+           data:{id:id},
+           url:"http://localhost/silatek-bt4/index.php/Jadwal/delete/"+id,
+           success:function()
+           {
+            // calendar.fullCalendar('refetchEvents');
+            $('#calendar').fullCalendar('removeEvents', id);
+            $("#calendar").fullCalendar('addEventSource', events);
+            $('#ModalVistoria').modal('hide');
+            alert("Event Removed");
+            window.location='http://localhost/silatek-bt4/index.php/Jadwal'
+           }
+          });
+
+        });
+    },
+
       events    : events,
 
     })
