@@ -78,18 +78,18 @@
                             </div>
                             <div class="modal-body">
                                 <div class="row">
-                                    <div class="col-xs-4">
-                                        <div class="form-group form-md">
-                                            <label for="ModalIsi">Jadwal Pelatihan : </label>
-                                            <div id="ModalIsi"></div>
+                                    <div class="col-md-6">
+                                        <div class="form-horizontal">
+                                            <b>Jadwal Pelatihan :</b> <label id="ModalIsi" class="control-label"></label><br>
+                                            <b>Tanggal Mulai Pelatihan :</b> <label id="ModalStart" class="control-label"></label><br>
+                                            <b>Tanggal Berakhir Pelatihan :</b> <label id="ModalEnd" class="control-label"></label>
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <input type="hidden" id="ModalId" />
-                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
                                 <button type="button" class="btn btn-danger event-delete waves-effect waves-light" data-dismiss="modal">Delete</button>
                             </div>
                         </div>
@@ -231,6 +231,8 @@
         $('.modal-title').html('Detail Jadwal');
         $('#ModalIsi').html(event.title);
         $('#ModalId').val(event.id);
+        $('#ModalStart').html(event.start);
+        $('#ModalEnd').val(event.end);
 
         $('#my-event').modal();
 
