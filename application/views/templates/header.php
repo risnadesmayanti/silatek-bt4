@@ -160,13 +160,13 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Dashboard'); ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard  </span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Pelatihan'); ?>" aria-expanded="false"><i class="mdi mdi-content-paste"></i><span class="hide-menu">Daftar Pelatihan</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Jadwal'); ?>" aria-expanded="false"><i class="mdi mdi-calendar-range"></i><span class="hide-menu">Jadwal Pelatihan</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Peserta'); ?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Daftar Peserta</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Instruktur'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Daftar Instruktur</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Silabus'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Daftar Silabus</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('index.php/Rekapitulasi'); ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Rekapitulasi</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Dashboard'); ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard  </span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Pelatihan'); ?>" aria-expanded="false"><i class="mdi mdi-content-paste"></i><span class="hide-menu">Daftar Pelatihan</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Jadwal'); ?>" aria-expanded="false"><i class="mdi mdi-calendar-range"></i><span class="hide-menu">Jadwal Pelatihan</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Peserta'); ?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Daftar Peserta</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Instruktur'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Daftar Instruktur</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Silabus'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Daftar Silabus</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Rekapitulasi'); ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Rekapitulasi</span></a></li>
                         
                     </ul>
                 </nav>
