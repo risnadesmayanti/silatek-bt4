@@ -2,7 +2,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                Made with love for B4T. <a href="https://about.me/faisalsyfl">Contact Us</a>.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
