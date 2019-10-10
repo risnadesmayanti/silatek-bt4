@@ -32,32 +32,8 @@
                         <div class="card">
                             <div class="">
                                 <div class="row">
-                                    <div class="col-lg-3 border-right p-r-0">
-                                        <div class="card-body border-bottom">
-                                            <h4 class="card-title m-t-10">Drag & Drop Event</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div id="calendar-events" class="">
-                                                      <?php foreach ($pelatihan as $key) { ?>
-                                                        <div class="calendar-events m-b-20" data-class="bg-<?php echo $key->category;?>"><i class="fa fa-circle text-<?php echo $key->category;?> m-r-10"></i><?php echo $key->nama;?></div>
-                                                      <?php } ?>
-                                                        
-                                                    </div>
-                                                    <!-- checkbox -->
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="drop-remove">
-                                                        <label class="custom-control-label" for="drop-remove">Remove after drop</label>
-                                                    </div>
-                                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
-                                                            <i class="ti-plus"></i> Add New Event
-                                                        </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
+                                    
+                                    <div class="col-lg">
                                         <div class="card-body b-l calender-sidebar">
                                             <div id="calendar"></div>
                                         </div>

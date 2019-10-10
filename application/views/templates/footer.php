@@ -50,7 +50,85 @@
 
     <script src="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/pages/calendar/cal-init.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js-extra/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
+    <script>
+        $(function () {
+          $('#example').datetimepicker();
+          $('#example2').datetimepicker();
+
+        });
+    </script>
+     <script type="text/javascript">
+    var events = <?php echo json_encode($data) ?>;
+    
+    var date = new Date()
+    var d    = date.getDate(),
+        m    = date.getMonth(),
+        y    = date.getFullYear()
+           
+    $('#calendar').fullCalendar({
+        selectable: true,
+        selectHelper: true,
+        editable: true,
+        displayEventTime: false,
+        eventLimit: true,
+
+    
+      header    : {
+        left  : 'prev,next today',
+        center: 'title',
+        right : 'month,agendaWeek,agendaDay'
+      },
+      buttonText: {
+        today: 'today',
+        month: 'month',
+        week : 'week',
+        day  : 'day'
+      },
+
+      eventClick: function (event, jsEvent, view) {
+        $('.modal-title').html('Detail Jadwal');
+        $('#ModalIsi').html(event.title);
+        $('#ModalId').val(event.id);
+        $('#ModalStart').html(event.start);
+        $('#ModalEnd').val(event.end);
+
+        $('#my-event').modal();
+
+        $('.event-delete').click(function (events) {
+            var id = $('#ModalId').val();
+
+          $.ajax({
+           type:"POST",
+           data:{id:id},
+           url:"http://localhost/silatek-bt4/index.php/Jadwal/delete/"+id,
+           success:function()
+           {
+            // calendar.fullCalendar('refetchEvents');
+            $('#calendar').fullCalendar('removeEvents', id);
+            $("#calendar").fullCalendar('addEventSource', events);
+            $('#ModalVistoria').modal('hide');
+            alert("Event Removed");
+            window.location='http://localhost/silatek-bt4/index.php/Jadwal'
+           }
+          });
+
+        });
+    },
+
+      events    : events,
+
+    })
+
+    </script>
+    <script>
+        $(function () {
+          $('#example').datetimepicker();
+          $('#example2').datetimepicker();
+
+        });
+    </script>
 
 
     <script>
@@ -91,9 +169,18 @@
             autoclose: true,
             todayHighlight: true
         });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
+        jQuery('#datepicker-autoclose2').datepicker({
+            autoclose: true,
+            todayHighlight: true
         });
+        
+        // $(function () {
+        //   $('#example').datetimepicker();
+        //   $('#example2').datetimepicker();
+
+        // });
+
+         jQuery('#datepicker-autoclose2').datetimepicker();
 
     </script>
 
