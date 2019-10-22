@@ -2,9 +2,9 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class M_jadwal extends CI_Model {
+	class M_training extends CI_Model {
 	
-		private $_table = "tb_pelatihan";
+		private $_table = "training";
 
 
 	    public function getAll()
@@ -17,16 +17,6 @@
 
 			$this->db->insert($this->_table,$data);
 		}
-
-		public function get_biaya($id)
-		{
-		    return $this->db->where("trainingId", $id)->get($this->_table);
-		}	
-
-		public function get_events($start, $end)
-		{
-		    return $this->db->where("start_date >=", $start)->where("end_date <=", $end)->get($this->_table);
-		}	
 
 		 public function deleteJadwal($id)
     {

@@ -35,7 +35,8 @@ class Pelatihan extends CI_Controller {
 	public function AddPel()
 	{
 		$data['pelatihan'] = $this->M_jadwal->getAll();
-
+		$data['training'] = $this->M_training->getAll();
+		
 		foreach ($data['pelatihan'] as $key => $value) {
             $data['data'][$key]['title'] = $value->nama;
             $data['data'][$key]['start'] = $value->start;

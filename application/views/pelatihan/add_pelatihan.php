@@ -56,18 +56,20 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
-                                            <select class="form-control form-white col-sm-10" data-placeholder="Pilih jenis pelatihan..." name="category">
-                                                <option value="Teknik Mesin">Teknik Mesin</option>
-                                                <option value="Teknik Listrik">Teknik Listrik</option>
-                                                <option value="Teknik Sipil">Teknik Sipil</option>
-                                                <option value="Teknik Kimia">Teknik Kimia</option>
-                                                <option value="Teknik Industri">Teknik Industri</option>
-                                                <option value="Perbetonan">Perbetonan</option>
+                                            <select class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih jenis pelatihan..." name="category">
+                                                <option disabled selected>Choose Database Type</option>
+                                                <?php foreach ($training as $key ) { ?>
+                                                    
+                                                <option value="<?php echo $key->name ?>"><?php echo $key->name ?></option>
+                                                <?php } ?>
+
                                             </select>
                                     </div>                                   
                                     <div class="form-group row">
-                                        <label class="col-sm-2 text-right col-form-label">Biaya Pelatihan : </label>
-                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan biaya pelatihan" name="biaya_pelatihan">
+                                                <?php foreach ($training as $key ) { ?>
+                                        <label class="col-sm-2 text-right col-form-label"></label>
+                                        <label class="col-sm-10 col-form-label">Informasi Biaya Pelatihan : <?php echo $key->biaya ?> </label>
+                                                <?php } ?>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Kuota Pelatihan : </label>
