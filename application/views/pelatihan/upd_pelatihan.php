@@ -47,42 +47,67 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                                    <?php foreach($pelatihan as $i){ ?>
-                            <form action="<?php echo base_url(). 'index.php/Pelatihan/updatingPel/'.$i->id; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                    <?php foreach($training as $i){ ?>
+                            <form action="<?php echo base_url(). 'index.php/Pelatihan/updatingPel/'.$i->trainingId; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <h4 class="card-title">Informasi Pelatihan</h4>
                                     <div class="form-group row">
                                       <!-- <input type="hidden" value="<?php echo $i->id; ?>"> -->
                                         <label class="col-sm-2 text-right col-form-label">Nama Pelatihan : </label>
-                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Pelatihan" name="nama_pelatihan" value="<?php echo $i->nama; ?>"  readonly="true" ondblclick="this.readOnly='';">
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
-                                            <select class="form-control form-white col-sm-10" data-placeholder="Pilih jenis pelatihan..." name="category">
-                                                <option value="Teknik Mesin">Teknik Mesin</option>
-                                                <option value="Teknik Listrik">Teknik Listrik</option>
-                                                <option value="Teknik Sipil">Teknik Sipil</option>
-                                                <option value="Teknik Kimia">Teknik Kimia</option>
-                                                <option value="Teknik Industri">Teknik Industri</option>
-                                                <option value="Perbetonan">Perbetonan</option>
-
-                                                <option value="<?php echo $i->category; ?>" selected><?php echo $i->category; ?></option>
-                                            </select>
-                                    </div>                                   
+                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Pelatihan" name="nama_pelatihan" value="<?php echo $i->name; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                    </div>                                 
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Biaya Pelatihan : </label>
-                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan biaya pelatihan" name="biaya_pelatihan" value="<?php echo $i->biaya_pelatihan; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan biaya pelatihan" name="biaya_pelatihan" value="<?php echo $i->biaya; ?>"  readonly="true" ondblclick="this.readOnly='';">
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Kuota Pelatihan : </label>
                                             <input type="number" class="form-control col-sm-10" placeholder="Masukkan jumlah kuota pelatihan ini" name="kuota" value="<?php echo $i->kuota; ?>"  readonly="true" ondblclick="this.readOnly='';">
                                     </div>             
+                                         <!-- <div class="border-top"> -->
+                                            <div class="card-body"  style="float: right;">
+                                                <button type="submit" class="btn btn-success">Save</button>
+                                            </div>
+                                        <!-- </div> -->
+
+                                        <?php } ?>
+                                            
+                                        </div>                                     
+                                </div>
+                                </div>
+                                
+                        </div>
+
+                        <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <form action="<?php echo base_url(). 'index.php/Pelatihan/AddingPel'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <h4 class="card-title">Formulir Jadwal Pelatihan</h4>
+                                    
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Peserta Terdaftar : </label>
+                                            <label class="col-sm-2 col-form-label">misal 45 peserta </label>
+                                            <div class="col-sm"  >
+                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-peserta" style="float: left;" class="btn btn-secondary ">Pilih peserta pelatihan ini</a>
+                                             </div>
+                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
+                                    </div> 
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Instruktur Tersedia : </label>
+                                            <label class="col-sm-2 col-form-label">misal 45 instruktur </label>
+                                            <div class="col-sm"  >
+                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-instruktur" style="float: left;" class="btn btn-secondary ">Pilih instruktur pelatihan ini</a>
+                                             </div>
+                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
+                                    </div> 
+
                                     <div class="form-group row">
                                         <!-- <div class="col-sm-2"> -->
                                             <label class="col-sm-2 text-right col-form-label">Tanggal Mulai :</label>
                                         <!-- </div> -->
                                             <div class="input-group col-sm-10" style="padding-left: unset;" >
-                                                <input name="start" type="text" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy" data-date-format="yyyy/mm/dd" value="<?php echo $i->start; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                                <input name="start" type="text" class="form-control" id="example" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                 </div>
@@ -93,7 +118,7 @@
                                             <label class="col-sm-2 text-right col-form-label">Tanggal Selesai :</label>
                                         <!-- </div> -->
                                             <div class="input-group col-sm-10" style="padding-left: unset;" >
-                                                <input name="end" type="text" class="form-control" id="datepicker-autoclose2" placeholder="mm/dd/yyyy" data-date-format="yyyy/mm/dd" value="<?php echo $i->end; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                                <input name="end" type="text" class="form-control" id="example2" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                 </div>
@@ -103,8 +128,6 @@
                                         <div class="col-sm-2">
                                             <!-- <label class="col-sm-2 text-right col-form-label">Tanggal Selesai :</label> -->
                                         </div>
-
-                                        <?php } ?>
                                             <div class="col-sm-10"  >
                                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" style="float: right;" class="btn btn-primary ">Lihat Jadwal yang tersedia</a>
                                                 </div>
@@ -112,7 +135,7 @@
                                         </div> 
                                         <div class="border-top">
                                             <div class="card-body">
-                                                <a href="<?php echo base_url('index.php/pelatihan'); ?>" class="btn btn-danger ">Cancel</a>
+                                                <a href="<?php echo base_url('index.php/instruktur'); ?>" class="btn btn-danger ">Cancel</a>
                                                 <button type="submit" class="btn btn-success">Save</button>
                                             </div>
                                         </div>

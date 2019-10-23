@@ -56,25 +56,42 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
-                                            <select class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih jenis pelatihan..." name="category">
+                                            <select id="category" class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih jenis pelatihan..." name="category" onchange="myFunction(event)">
                                                 <option disabled selected>Choose Database Type</option>
                                                 <?php foreach ($training as $key ) { ?>
                                                     
-                                                <option value="<?php echo $key->name ?>"><?php echo $key->name ?></option>
+                                                <option value="<?php echo $key->name ?>" data-price="<?php echo $key->biaya ?>" data-kuota="<?php echo $key->kuota ?>"><?php echo $key->name ?></option>
                                                 <?php } ?>
 
                                             </select>
                                     </div>                                   
                                     <div class="form-group row">
-                                                <?php foreach ($training as $key ) { ?>
-                                        <label class="col-sm-2 text-right col-form-label"></label>
-                                        <label class="col-sm-10 col-form-label">Informasi Biaya Pelatihan : <?php echo $key->biaya ?> </label>
-                                                <?php } ?>
+                                                <?php //foreach ($training as $key ) { ?>
+                                        <label class="col-sm-2 text-right col-form-label">Informasi Biaya Pelatihan :</label>
+                                        <input class="form-control col-sm-10" id="myText" type="text" disabled="true">
+                                                <?php //} ?>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Kuota Pelatihan : </label>
-                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan jumlah kuota pelatihan ini" name="kuota">
-                                    </div>             
+                                            <input type="number" class="form-control col-sm-10" id="kuota" disabled="true" name="kuota">
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Peserta Terdaftar : </label>
+                                            <label class="col-sm-2 col-form-label">misal 45 peserta </label>
+                                            <div class="col-sm"  >
+                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-peserta" style="float: left;" class="btn btn-secondary ">Pilih peserta pelatihan ini</a>
+                                             </div>
+                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
+                                    </div> 
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Instruktur Tersedia : </label>
+                                            <label class="col-sm-2 col-form-label">misal 45 instruktur </label>
+                                            <div class="col-sm"  >
+                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-instruktur" style="float: left;" class="btn btn-secondary ">Pilih instruktur pelatihan ini</a>
+                                             </div>
+                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
+                                    </div> 
+
                                     <div class="form-group row">
                                         <!-- <div class="col-sm-2"> -->
                                             <label class="col-sm-2 text-right col-form-label">Tanggal Mulai :</label>
@@ -148,6 +165,87 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal Add Category -->
+                <div class="modal fade none-border" id="add-peserta">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><strong>Pilih Peserta Pelatihan</strong></h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- <form action="<?php// echo base_url(). 'index.php/Jadwal/addingToJadwal'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data"> -->
+                                    <div class="form-group row">
+                                         <div class="col">
+                                          <div class="card-body b-l">
+
+                                            
+                                        
+                                <table>
+                                    <tr>
+                                        <td><label class="customcheckbox m-b-20 form-label">
+                                    <input type="checkbox" id="mainCheckbox" />
+                                    <span class="checkmark"></span>
+                                
+                                </label></td>
+                                <td>Pilih semua di page ini</td>
+                                    </tr>
+                                </table>
+                                        <div class="table-responsive">
+
+                                    <table class="table" id="zero_config>
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>#</th>
+                                                <th scope="col">Nomor Peserta</th>
+                                                <th scope="col">Nama Peserta</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody class="customtable">
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox" />
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td>Trident</td>
+                                                <td>Internet Explorer 4.0</td>
+                                               
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <br>
+                                 <div class="row" style="justify-content: center;">
+                                    <div class="col-md-4">
+                                        <nav aria-label="Page navigation example">
+                                              <ul class="pagination">
+                                                <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+                                              </ul>
+                                        </nav>
+                                    </div>
+                                          </div>
+                                    </div>
+                                    </div>
+                                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Save</button>
+                                </form>
+                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -171,4 +269,10 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-
+<script type="text/javascript">
+    var money = 0;
+    function myFunction(e) {
+        document.getElementById("myText").value = $("option:selected", "#category").attr("data-price")
+        document.getElementById("kuota").value = $("option:selected", "#category").attr("data-kuota")
+    }
+</script>

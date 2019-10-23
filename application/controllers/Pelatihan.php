@@ -7,6 +7,7 @@ class Pelatihan extends CI_Controller {
 	public function index()
 	{
 		$data['pelatihan'] = $this->M_jadwal->getAll();
+		$data['training'] = $this->M_training->getAll();
 
 		$this->load->view('templates/header');
 		$this->load->view('pelatihan/pelatihan', $data);
@@ -100,8 +101,9 @@ class Pelatihan extends CI_Controller {
 
 	public function updatePel($id)
 	{
-		$where = array('id' => $id);
-		$data['pelatihan'] = $this->M_pelatihan->edit_data($where,'user')->result();
+		$where = array('trainingId' => $id);
+		$data['training'] = $this->M_training->edit_data($where,'user')->result();
+		// $data['pelatihan'] = $this->M_pelatihan->edit_data($where,'user')->result();
 		$this->load->view('templates/header');
 		$this->load->view('pelatihan/upd_pelatihan',$data);
 		$this->load->view('templates/footer');

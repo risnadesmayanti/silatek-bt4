@@ -12,6 +12,27 @@
         	return $this->db->get($this->_table)->result();
    		}
 
+   		public function getSelected($id)
+		{
+			$this->db->select('*');
+		    $this->db->from($this->_table);
+		    $this->db->where('trainingId',$id);
+		    $res2 = $this->db->get();
+	  		return $res2;
+		}
+
+		public function update_data($data, $id = NULL)
+		{
+			$this->db->set($data);
+	        $this->db->where('trainingId', $id);
+	        $this->db->update($this->_table);
+		}
+
+		public function edit_data($where)
+		{
+			return $this->db->get_where($this->_table,$where);
+		}
+
    		public function addJadwal($data)
 		{
 
