@@ -21,6 +21,12 @@
 	  		return $res2;
 		}
 
+		public function addPelatihan($data)
+		{
+
+			$this->db->insert($this->_table,$data);
+		}
+
 		public function update_data($data, $id = NULL)
 		{
 			$this->db->set($data);

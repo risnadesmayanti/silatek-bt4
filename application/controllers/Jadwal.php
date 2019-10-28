@@ -6,10 +6,12 @@ class Jadwal extends CI_Controller {
 	public function index()
 	{
 		// $this->load->view('welcome_message');
-		$data['pelatihan'] = $this->M_jadwal->getAll();
+		// $data['pelatihan'] = $this->M_pelatihan->getAll();
+		$data['pelatihan'] = $this->M_jadwal->getJadwalPelatihan();
+
 
 		foreach ($data['pelatihan'] as $key => $value) {
-            $data['data'][$key]['title'] = $value->nama;
+            $data['data'][$key]['title'] = $value->name;
             $data['data'][$key]['start'] = $value->start;
             $data['data'][$key]['end'] = $value->end;
             $data['data'][$key]['color'] = $value->color;
@@ -19,7 +21,9 @@ class Jadwal extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('jadwal', $data);
 		// $this->load->view('templates/footer');
+		 echo "<pre>";
 	     // print_r($data);
+		 echo "</pre>";
 	}
 
 	public function get_events()
@@ -56,39 +60,29 @@ class Jadwal extends CI_Controller {
 	     exit();
 	 }
 
-	public function addingToJadwal()
+	 public function updatingJadwal($id)
 	{
-		$nama_pelatihan = $this->input->post('nama_pelatihan');
-		$category = $this->input->post('category');
-		if ($category == 'success') {
-			$color = '#28b779';
-		}elseif ($category == 'danger') {
-			$color = '#ea7171';
-		}elseif ($category == 'warning') {
-			$color = '#ffb748';
-		}elseif ($category == 'info') {
-			$color = '#2255a4';
-		}
 		$start = $this->input->post('start');
 		$end = $this->input->post('end');
-		$biaya_pelatihan = $this->input->post('biaya_pelatihan');
-		
+
 		$data = array(
-			'id' => NULL,
-			'nama' => $nama_pelatihan,
-			'category' => $category,
-			'color' => $color,
+			'trainingId' => $id,
+			// 'name' => $nama_pelatihan,
+			// 'category' => $category,
+			// 'color' => $color,
 			'start' => $start,
 			'end' => $end,
-			'biaya_pelatihan' => $biaya_pelatihan
+			// 'kuota' => $kuota,
+			// 'biaya' => $biaya_pelatihan
 			);
 
-		 echo "<pre>";
+            echo "<pre>";
             print_r($data);
-
             echo "</pre>";
-		$this->M_jadwal->addJadwal($data);
-		redirect('/Jadwal');
+		
+
+			$this->M_jadwal->update_data($data,$id);
+			redirect('/pelatihan');
 	}
 
 	public function delete($id)

@@ -58,70 +58,30 @@
                                         <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
                                             <select id="category" class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih jenis pelatihan..." name="category" onchange="myFunction(event)">
                                                 <option disabled selected>Choose Database Type</option>
-                                                <?php foreach ($training as $key ) { ?>
                                                     
-                                                <option value="<?php echo $key->name ?>" data-price="<?php echo $key->biaya ?>" data-kuota="<?php echo $key->kuota ?>"><?php echo $key->name ?></option>
-                                                <?php } ?>
+                                                <option value="IWE">IWE</option>
+                                                <option value="IWIP">IWIP</option>
+                                                <option value="IWI">IWI</option>
+                                                <option value="IWS">IWS</option>
+                                                <option value="IWP">IWP</option>
+                                                <option value="WD">WD</option>
+                                                <option value="NDT">NDT</option>
+                                                <option value="RI">RI</option>
+                                                <option value="CI">CI</option>
+                                                
 
                                             </select>
                                     </div>                                   
                                     <div class="form-group row">
                                                 <?php //foreach ($training as $key ) { ?>
                                         <label class="col-sm-2 text-right col-form-label">Informasi Biaya Pelatihan :</label>
-                                        <input class="form-control col-sm-10" id="myText" type="text" disabled="true">
+                                      <input type="text" class="form-control col-sm-10" placeholder="Isi Biaya Pelatihan" name="biaya_pelatihan">
                                                 <?php //} ?>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Kuota Pelatihan : </label>
-                                            <input type="number" class="form-control col-sm-10" id="kuota" disabled="true" name="kuota">
+                                            <input type="number" class="form-control col-sm-10" id="kuota" name="kuota">
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 text-right col-form-label">Peserta Terdaftar : </label>
-                                            <label class="col-sm-2 col-form-label">misal 45 peserta </label>
-                                            <div class="col-sm"  >
-                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-peserta" style="float: left;" class="btn btn-secondary ">Pilih peserta pelatihan ini</a>
-                                             </div>
-                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
-                                    </div> 
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 text-right col-form-label">Instruktur Tersedia : </label>
-                                            <label class="col-sm-2 col-form-label">misal 45 instruktur </label>
-                                            <div class="col-sm"  >
-                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-instruktur" style="float: left;" class="btn btn-secondary ">Pilih instruktur pelatihan ini</a>
-                                             </div>
-                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
-                                    </div> 
-
-                                    <div class="form-group row">
-                                        <!-- <div class="col-sm-2"> -->
-                                            <label class="col-sm-2 text-right col-form-label">Tanggal Mulai :</label>
-                                        <!-- </div> -->
-                                            <div class="input-group col-sm-10" style="padding-left: unset;" >
-                                                <input name="start" type="text" class="form-control" id="example" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                </div>
-                                             </div>
-                                    </div>
-                                       <div class="form-group row">
-                                        <!-- <div class="col-sm-2"> -->
-                                            <label class="col-sm-2 text-right col-form-label">Tanggal Selesai :</label>
-                                        <!-- </div> -->
-                                            <div class="input-group col-sm-10" style="padding-left: unset;" >
-                                                <input name="end" type="text" class="form-control" id="example2" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                </div>
-                                             </div>
-                                        </div> 
-                                         <div class="form-group row">
-                                        <div class="col-sm-2">
-                                            <!-- <label class="col-sm-2 text-right col-form-label">Tanggal Selesai :</label> -->
-                                        </div>
-                                            <div class="col-sm-10"  >
-                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" style="float: right;" class="btn btn-primary ">Lihat Jadwal yang tersedia</a>
-                                                </div>
-                                             </div>
                                         </div> 
                                         <div class="border-top">
                                             <div class="card-body">

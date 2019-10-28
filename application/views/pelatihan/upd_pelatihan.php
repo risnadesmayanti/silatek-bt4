@@ -52,10 +52,31 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Informasi Pelatihan</h4>
                                     <div class="form-group row">
-                                      <!-- <input type="hidden" value="<?php echo $i->id; ?>"> -->
                                         <label class="col-sm-2 text-right col-form-label">Nama Pelatihan : </label>
                                             <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Pelatihan" name="nama_pelatihan" value="<?php echo $i->name; ?>"  readonly="true" ondblclick="this.readOnly='';">
-                                    </div>                                 
+                                    </div>    
+
+                                    <!-- <div class="form-group row"> -->
+                                        <!-- <label class="col-sm-2 text-right col-form-label">Kategori : </label> -->
+                                    <!-- </div>         -->
+                                   <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
+                                            <select id="category" value="<?php echo $i->category; ?>" class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih jenis pelatihan..." name="category" onchange="myFunction(event)">
+                                                <option value="<?php echo $i->category; ?>" selected><?php echo $i->category; ?></option>
+                                                    
+                                                <option value="IWE">IWE</option>
+                                                <option value="IWIP">IWIP</option>
+                                                <option value="IWI">IWI</option>
+                                                <option value="IWS">IWS</option>
+                                                <option value="IWP">IWP</option>
+                                                <option value="WD">WD</option>
+                                                <option value="NDT">NDT</option>
+                                                <option value="RI">RI</option>
+                                                <option value="CI">CI</option>
+                                                
+
+                                            </select>
+                                    </div>          
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Biaya Pelatihan : </label>
                                             <input type="number" class="form-control col-sm-10" placeholder="Masukkan biaya pelatihan" name="biaya_pelatihan" value="<?php echo $i->biaya; ?>"  readonly="true" ondblclick="this.readOnly='';">
@@ -70,44 +91,35 @@
                                             </div>
                                         <!-- </div> -->
 
-                                        <?php } ?>
                                             
                                         </div>                                     
                                 </div>
                                 </div>
+                            </form>
                                 
                         </div>
 
                         <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="<?php echo base_url(). 'index.php/Pelatihan/AddingPel'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <!-- <form action="<?php //echo base_url(). 'index.php/Pelatihan/AddingPel'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data"> -->
+                            <form action="<?php echo base_url(). 'index.php/Pelatihan/AddingToJadwal'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                      <input type="hidden" name="id" value="<?php echo $i->trainingId; ?>">
+                                      <input type="hidden" name="category" value="<?php echo $i->category; ?>">    
+                                        <?php } ?>
                                 <div class="card-body">
-                                    <h4 class="card-title">Formulir Jadwal Pelatihan</h4>
-                                    
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 text-right col-form-label">Peserta Terdaftar : </label>
-                                            <label class="col-sm-2 col-form-label">misal 45 peserta </label>
-                                            <div class="col-sm"  >
-                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-peserta" style="float: left;" class="btn btn-secondary ">Pilih peserta pelatihan ini</a>
-                                             </div>
-                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
-                                    </div> 
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 text-right col-form-label">Instruktur Tersedia : </label>
-                                            <label class="col-sm-2 col-form-label">misal 45 instruktur </label>
-                                            <div class="col-sm"  >
-                                                <a href="javascript:void(0)" data-toggle="modal" data-target="#add-instruktur" style="float: left;" class="btn btn-secondary ">Pilih instruktur pelatihan ini</a>
-                                             </div>
-                                            <!-- <input type="text" class="form-control col-sm-10" name="nama_pelatihan"> -->
-                                    </div> 
-
+                                    <h4 class="card-title">Formulir Penjadwalan</h4>
                                     <div class="form-group row">
                                         <!-- <div class="col-sm-2"> -->
                                             <label class="col-sm-2 text-right col-form-label">Tanggal Mulai :</label>
                                         <!-- </div> -->
                                             <div class="input-group col-sm-10" style="padding-left: unset;" >
-                                                <input name="start" type="text" class="form-control" id="example" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
+                                    <?php foreach($jadwal as $i){ ?>
+                                        <?php if ($i->start) {?>
+                                            <input name="start" type="text" class="form-control" id="example" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss" value="<?php echo $i->start; ?>" readonly="true" ondblclick="this.readOnly='';">
+                                        <?php }?>
+                                                
+                                <?php } ?>
                                                 <div class="input-group-append">
                                                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                 </div>
@@ -198,4 +210,67 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script type="text/javascript">
+    var events = <?php echo json_encode($data) ?>;
+    
+    var date = new Date()
+    var d    = date.getDate(),
+        m    = date.getMonth(),
+        y    = date.getFullYear()
+           
+    $('#calendar').fullCalendar({
+        selectable: true,
+        selectHelper: true,
+        editable: true,
+        displayEventTime: false,
+        eventLimit: true,
+
+    
+      header    : {
+        left  : 'prev,next today',
+        center: 'title',
+        right : 'month,agendaWeek,agendaDay'
+      },
+      buttonText: {
+        today: 'today',
+        month: 'month',
+        week : 'week',
+        day  : 'day'
+      },
+
+      eventClick: function (event, jsEvent, view) {
+        $('.modal-title').html('Detail Jadwal');
+        $('#ModalIsi').html(event.title);
+        $('#ModalId').val(event.id);
+        $('#ModalStart').html(event.start);
+        $('#ModalEnd').val(event.end);
+
+        $('#my-event').modal();
+
+        $('.event-delete').click(function (events) {
+            var id = $('#ModalId').val();
+
+          $.ajax({
+           type:"POST",
+           data:{id:id},
+           url:"http://localhost/silatek-bt4/index.php/Jadwal/delete/"+id,
+           success:function()
+           {
+            // calendar.fullCalendar('refetchEvents');
+            $('#calendar').fullCalendar('removeEvents', id);
+            $("#calendar").fullCalendar('addEventSource', events);
+            $('#ModalVistoria').modal('hide');
+            alert("Event Removed");
+            window.location='http://localhost/silatek-bt4/index.php/Jadwal'
+           }
+          });
+
+        });
+    },
+
+      events    : events,
+
+    })
+
+    </script>
 
