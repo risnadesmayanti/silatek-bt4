@@ -98,17 +98,27 @@
                                   <label class="col-sm-2 text-right col-form-label">Asal Instansi : </label>
                                       <input type="text" class="form-control col-sm-10" placeholder="Masukan Asal Instansi" name="asal_instansi">
                               </div>
-                              <div class="form-group row">                                   
-                                  <label class="col-sm-2 text-right col-form-label" >Spesialisasi :</label>
-                                      <select class="select2 form-control col-sm-10 custom-select" style="height:36px;" name="spesialisasi" required>
-                                        <option>Teknik Industri</option>
-                                        <option>Teknik Mesin</option>
-                                        <option>Teknik Kelistrikan</option>
-                                        <option>Teknik Informatika</option>
-                                        <option>Teknik Tekstil</option>
-                                      </select>
-                                    
-                              </div>
+                              <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
+                                           
+
+                                            <select id="category" class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih spesialisasi pelatihan..." name="spesialisasi" onchange="myFunction(event)">
+
+                                                <option disabled selected>Choose Database Type</option>
+                                                <option value="IWE">IWE</option>
+                                                <option value="IWIP">IWIP</option>
+                                                <option value="IWI">IWI</option>
+                                                <option value="IWS">IWS</option>
+                                                <option value="IWP">IWP</option>
+                                                <option value="WD">WD</option>
+                                                <option value="NDT">NDT</option>
+                                                <option value="RI">RI</option>
+                                                <option value="CI">CI</option>
+                                                
+
+
+                                            </select>
+                                    </div>
                               <div class="form-group row">
                                         <label class="col-sm-2 text-right control-label col-form-label">Keterangan :</label>
                                         <!-- <div class="col-sm-10"> -->

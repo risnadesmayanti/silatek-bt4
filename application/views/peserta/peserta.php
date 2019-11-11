@@ -40,12 +40,12 @@
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Master Instruktur</h4>
+                        <h4 class="page-title">Master Peserta</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Instruktur</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Daftar Instruktur</li>
+                                    <li class="breadcrumb-item"><a href="#">Pelatihan</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Daftar Peserta</li>
                                 </ol>
                             </nav>
                         </div>
@@ -63,51 +63,37 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                               <div class="card-title">
-                              <a class="btn btn-secondary btn-sm" href="<?php echo base_url('index.php/Instruktur/AddIns'); ?>"><i class="fas fa-plus"></i> Tambah Data Instruktur</a>
+                              <div class="card-title">
+                              <a class="btn btn-secondary btn-sm" href="<?php echo base_url('index.php/Peserta/AddPeserta'); ?>"><i class="fas fa-plus"></i> Tambah Data Peserta</a>
                               </div>
                                 <div class="table-responsive">
-                                    <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                                      <!-- <div class="row">
-                                        <div class="col-sm-12 col-md-6">
-                                          <div class="dataTables_length" id="zero_config_length">
-                                            <label>Show <select name="zero_config_length" aria-controls="zero_config" class="form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label>
-                                          </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                          <div id="zero_config_filter" class="dataTables_filter">
-                                            <label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="zero_config"></label></div>
-                                          </div>
-                                        </div> -->
-                                        <div class="row">
-                                          <div class="col-sm-12">
-                                            <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info" style="margin-top: 1%">
+                                  <table id="zero_config" class="table table-striped table-bordered dataTable" role="grid" aria-describedby="zero_config_info" style="margin-top: 1%">
                                         <thead>
                                             <tr role="row">
                                               <th>No</th>
-                                              <th>Nama Instruktur Pelatihan</th>
-                                              <th>Spesialisasi</th>
-                                              <th>Asal Instansi</th>
+                                              <th>Nama Peserta</th>
+                                              <th>Usia Peserta</th>
+                                              <th>Training</th>
                                               <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>               
                                         <?php  $i=1;
-                                        foreach ($ins as $key ) { ?>
+                                        foreach ($peserta as $key ) { ?>
                          
                                         <tr>
                                           <td style="text-align: center;"><?php echo $i; ?></td>
                                           <td><?php echo $key->nama; ?></td>
-                                          <td><?php echo $key->spesialisasi; ?></td>
-                                          <td><?php echo $key->asal_instansi; ?></td>
+                                          <td><?php echo $key->usia; ?></td>
+                                          <td><?php echo $key->training; ?></td>
                                           <td style="text-align: center;">
                                             <!-- <a href="#" id="<?php //echo $key->id; ?>" class="btn btn-primary btn-mini view_data" title="Lihat Detail" data-toggle="modal" data-target="#myModal"><i class="icon icon-eye-open"></i></a> --> 
                                             
-                                            <a href="<?php echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="mdi mdi-eye"></i></a> 
+                                            <a href="<?php echo base_url(). 'index.php/Pelatihan/updatePel/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="mdi mdi-eye"></i></a> 
                                             <!-- <button type="button" class="btn btn-success btn-mini" data-toggle="modal" data-target="#modal-tambah" title="Lihat Detail"><i class="icon icon-eye-open"></i></button> -->
                                             <!-- <a href="" data id="<?php //echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini view_data" data-toggle="modal" data-target="#modal-edit" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> -->
 
-                                            <a href="<?php echo base_url(). 'index.php/Instruktur/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="mdi mdi-delete"></i></a>
+                                            <a href="<?php echo base_url(). 'index.php/Pelatihan/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="mdi mdi-delete"></i></a>
                                           </td>
                                         </tr>
                                        <?php $i++;} ?>
@@ -115,14 +101,13 @@
                                       </tbody>
                                     </table>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
+
+
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

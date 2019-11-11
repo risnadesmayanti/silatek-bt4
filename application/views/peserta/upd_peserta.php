@@ -53,7 +53,7 @@
                                     <h4 class="card-title">Informasi Pelatihan</h4>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Nama Pelatihan : </label>
-                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Pelatihan" name="nama_pelatihan" value="<?php echo $i->name; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Pelatihan" name="nama_pelatihan" value="<?php echo $i->name; ?>"  readonly="true" ondblclick="this.readOnly='';" id="nama_pelatihan">
                                     </div>    
 
                                     <!-- <div class="form-group row"> -->
@@ -79,11 +79,11 @@
                                     </div>          
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Biaya Pelatihan : </label>
-                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan biaya pelatihan" name="biaya_pelatihan" value="<?php echo $i->biaya; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan biaya pelatihan" name="biaya_pelatihan" value="<?php echo $i->biaya; ?>"  readonly="true" ondblclick="this.readOnly='';" id="biaya_pelatihan">
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Kuota Pelatihan : </label>
-                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan jumlah kuota pelatihan ini" name="kuota" value="<?php echo $i->kuota; ?>"  readonly="true" ondblclick="this.readOnly='';">
+                                            <input type="number" class="form-control col-sm-10" placeholder="Masukkan jumlah kuota pelatihan ini" name="kuota" value="<?php echo $i->kuota; ?>"  readonly="true" ondblclick="this.readOnly='';" id="kuota">
                                     </div>             
                                          <!-- <div class="border-top"> -->
                                             <div class="card-body"  style="float: right;">
@@ -158,7 +158,7 @@
                 </div>
                 </form> 
                 <!-- Modal Add Category -->
-               <div class="modal fade none-border" id="add-new-event">
+                <div class="modal fade none-border" id="add-new-event">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                           <?php foreach($training as $i){ ?>
@@ -181,7 +181,7 @@
                                         </div>  -->
                                       <?php }?>
                                           <div class="form-group row">
-                                            <label class="col-form-label">Tanggal dan Waktu Mulai :</label>
+                                            <label class="text-right col-form-label">Tanggal dan Waktu Mulai :</label>
                                               <div class="input-group" style="padding-left: unset;" >
                                                 <input name="start" type="text" class="form-control" id="example" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
                                                 <div class="input-group-append">
@@ -190,7 +190,7 @@
                                                </div>
                                           </div>
                                           <div class="form-group row">
-                                            <label class="col-form-label">Tanggal dan Waktus Selesai :</label>
+                                            <label class="text-right col-form-label">Tanggal dan Waktus Selesai :</label>
                                               <div class="input-group" style="padding-left: unset;" >
                                                 <input name="end" type="text" class="form-control" id="example2" placeholder="mm/dd/yyyy" data-date-format="YYYY/MM/DD HH:mm:ss">
                                                 <div class="input-group-append">
@@ -213,9 +213,11 @@
                                 </form>
                                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                             </div>
-                        </form>
                         </div>
                     </div>
+                    </form>
+                </div>
+            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -300,5 +302,35 @@
 
     })
 
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          // save comment to database
+          $(document).on('click', '#savebtn', function(){
+            var id = $('#id').val();
+            var nama_pelatihan = $('#nama_pelatihan').val();
+            var biaya_pelatihan = $('#biaya_pelatihan').val();
+            var category = $('#category').val();
+            var kuota = $('#kuota').val();
+            var start = $('#example').val();
+            var end = $('#example2').val();
+
+            $.ajax({
+              url: 'http://localhost/silatek-bt4/index.php/Pelathan/AddingToJadwal',
+              type: 'POST',
+              data: {
+                'id': NULL,
+                'id_pelatihan': id,
+                'start': start,
+                'end': end,
+                'color': '#39B54A',
+              },
+              success: function(response){
+                alert("Event added");
+                window.location='http://localhost/silatek-bt4/index.php/Pelatihan'
+              }
+            });
+          });
     </script>
 

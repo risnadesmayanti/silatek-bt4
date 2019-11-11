@@ -153,7 +153,7 @@ error_reporting(E_ALL);
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right control-label col-form-label">Alamat Lengkap :</label>
                                         <!-- <div class="col-sm-10"> -->
-                                            <textarea class="form-control col-sm-10" name="alamat" placeholder=""  readonly="true" ondblclick="this.readOnly='';"><?php echo $i->alamat; ?>></textarea>
+                                            <textarea class="form-control col-sm-10" name="alamat" placeholder=""  readonly="true" ondblclick="this.readOnly='';"><?php echo $i->alamat; ?></textarea>
                                         <!-- </div> -->
                                     </div>
                                        <div class="form-group row">
@@ -185,20 +185,27 @@ error_reporting(E_ALL);
                                   <label class="col-sm-2 text-right col-form-label">Asal Instansi : </label>
                                       <input type="text" class="form-control col-sm-10" placeholder="Masukan Asal Instansi" name="asal_instansi" value="<?php echo $i->asal_instansi; ?>"  readonly="true" ondblclick="this.readOnly='';" >
                               </div>
-                              <div class="form-group row">                                   
-                                  <label class="col-sm-2 text-right col-form-label" >Spesialisasi :</label>
-                                      <select class="select2 form-control col-sm-9 custom-select" style="height:36px;" name="spesialisasi" readonly="true">
-                                        <option>Teknik Industri</option>
-                                        <option>Teknik Mesin</option>
-                                        <option>Teknik Kelistrikan</option>
-                                        <option>Teknik Informatika</option>
-                                        <option>Teknik Tekstil</option>
+                              <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Jenis Pelatihan : </label>
+                                           
 
-                                        <option value="<?php echo $i->spesialisasi; ?>" selected><?php echo $i->spesialisasi; ?></option>
-                                      </select>
-                                      <input type="button" onclick="enable()" value="Ubah Data" class="col-sm-1" >
-                                    
-                              </div>
+                                            <select id="category" class="form-control form-white col-sm-10 select2 custom-select" data-placeholder="Pilih spesialisasi pelatihan..." name="spesialisasi" onchange="myFunction(event)">
+
+                                                <option disabled selected>Choose Database Type</option>
+                                                <option value="IWE">IWE</option>
+                                                <option value="IWIP">IWIP</option>
+                                                <option value="IWI">IWI</option>
+                                                <option value="IWS">IWS</option>
+                                                <option value="IWP">IWP</option>
+                                                <option value="WD">WD</option>
+                                                <option value="NDT">NDT</option>
+                                                <option value="RI">RI</option>
+                                                <option value="CI">CI</option>
+                                                
+
+
+                                            </select>
+                                    </div>
                               <div class="form-group row">
                                         <label class="col-sm-2 text-right control-label col-form-label">Keterangan :</label>
                                         <!-- <div class="col-sm-10"> -->

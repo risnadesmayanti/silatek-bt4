@@ -14,17 +14,12 @@ class Pelatihan extends CI_Controller {
 		// $this->load->view('templates/content');
 		$this->load->view('templates/footer');
 
-	}
-
-
-	
+	}	
 
 	public function AllPelatihan()
 	{
-		// $this->load->view('welcome_message');
-		$this->load->view('templates/header');
-		$this->load->view('AllPelatihan');
-		$this->load->view('templates/footer');
+		$data['training'] = $this->M_training->getAll()->result();
+		echo json_encode($data);
 	}
 
 	
