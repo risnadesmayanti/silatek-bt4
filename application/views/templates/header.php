@@ -25,16 +25,14 @@
     <link href="<?php echo base_url(); ?>assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/js-extra/datetimepicker/css/bootstrap-datetimepicker.min.css">
-
-    <!-- Chart -->
     <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
     <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
     <style type="text/css">
         canvas {
-                -moz-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-            }
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
         .clsDatePicker {
             z-index: 100000;
         }

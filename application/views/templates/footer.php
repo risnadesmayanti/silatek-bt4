@@ -41,6 +41,8 @@
     <script src="<?php echo base_url(); ?>assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/dist/js/Chart.bundle.min.js"></script> -->
+    <!-- <script src="<?php echo base_url(); ?>assets/dist/js/Chart.bundle.js"></script> -->
     <script src="<?php echo base_url(); ?>assets/extra-libs/DataTables/datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/select2/dist/js/select2.full.min.js"></script>
@@ -53,9 +55,9 @@
     <script src="<?php echo base_url(); ?>assets/js-extra/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="<?php echo base_url(); ?>assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+    
     <script>
         /****************************************
          *       Basic Table                   *
@@ -69,69 +71,7 @@
 
         });
     </script>
-     <script type="text/javascript">
-    var events = <?php echo json_encode($data) ?>;
-    
-    var date = new Date()
-    var d    = date.getDate(),
-        m    = date.getMonth(),
-        y    = date.getFullYear()
-           
-    $('#calendar').fullCalendar({
-        selectable: true,
-        selectHelper: true,
-        editable: true,
-        displayEventTime: false,
-        eventLimit: true,
-
-    
-      header    : {
-        left  : 'prev,next today',
-        center: 'title',
-        right : 'month,agendaWeek,agendaDay'
-      },
-      buttonText: {
-        today: 'today',
-        month: 'month',
-        week : 'week',
-        day  : 'day'
-      },
-
-      eventClick: function (event, jsEvent, view) {
-        $('.modal-title').html('Detail Jadwal');
-        $('#ModalIsi').html(event.title);
-        $('#ModalId').val(event.id);
-        $('#ModalStart').html(event.start);
-        $('#ModalEnd').val(event.end);
-
-        $('#my-event').modal();
-
-        $('.event-delete').click(function (events) {
-            var id = $('#ModalId').val();
-
-          $.ajax({
-           type:"POST",
-           data:{id:id},
-           url:"http://localhost/silatek-bt4/index.php/Jadwal/delete/"+id,
-           success:function()
-           {
-            // calendar.fullCalendar('refetchEvents');
-            $('#calendar').fullCalendar('removeEvents', id);
-            $("#calendar").fullCalendar('addEventSource', events);
-            $('#ModalVistoria').modal('hide');
-            alert("Event Removed");
-            window.location='http://localhost/silatek-bt4/index.php/Jadwal'
-           }
-          });
-
-        });
-    },
-
-      events    : events,
-
-    })
-
-    </script>
+   
     <script>
         $(function () {
           $('#example').datetimepicker();
