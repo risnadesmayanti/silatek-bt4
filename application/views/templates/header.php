@@ -149,7 +149,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url(); ?>assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Keluar Ke SSO</a>
+                                <a class="dropdown-item" href="<?=base_url();?>Auth/destroy"><i class="fa fa-power-off m-r-5 m-l-5"></i> Keluar Ke SSO</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -176,9 +176,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Jadwal'); ?>" aria-expanded="false"><i class="mdi mdi-calendar-range"></i><span class="hide-menu">Jadwal Pelatihan</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Peserta'); ?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Daftar Peserta</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Instruktur'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Daftar Instruktur</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Silabus'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Daftar Silabus</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Rekapitulasi'); ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Rekapitulasi</span></a></li>
-                        
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Silabus'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Daftar Silabus</span></a></li>                        
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

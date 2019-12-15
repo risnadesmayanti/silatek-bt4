@@ -70,7 +70,7 @@
         });
     </script>
      <script type="text/javascript">
-    var events = <?php echo json_encode($data) ?>;
+    var events = null;
     
     var date = new Date()
     var d    = date.getDate(),
