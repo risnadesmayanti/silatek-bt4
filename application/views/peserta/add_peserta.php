@@ -22,12 +22,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Formulir Tambah Data Pelatihan</h4>
+                        <h4 class="page-title">Formulir Tambah Data Peserta</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Pelatihan</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tambah Data Pelatihan</li>
+                                    <li class="breadcrumb-item"><a href="#">Peserta</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Tambah Data Peserta</li>
                                 </ol>
                             </nav>
                         </div>
@@ -47,9 +47,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="<?php echo base_url(). 'index.php/Pelatihan/AddingPel'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="<?php echo base_url(). 'index.php/Peserta/AddingPeserta'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="card-body">
-                                    <h4 class="card-title">Informasi Pelatihan</h4>
+                                    <h4 class="card-title">Informasi Peserta</h4>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Nama Peserta : </label>
                                             <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Peserta" name="nama_peserta">
@@ -83,12 +83,30 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Daftar Pelatihan : </label>
-                                            <select id="pendidikan" class="form-control form-white col-sm-10  custom-select" name="pendidikan" onchange="myFunction(event)">
+                                            <select id="pelatihan" class="form-control form-white col-sm-10 custom-select" name="pelatihan" onchange="myFunction(event)">
                                                 <option disabled selected>Pilih pelatihan yang diambil ... </option>
                                                 <?php foreach ($training as $key) { ?>
                                                 <option value="<?php echo $key->name; ?>"><?php echo $key->name; ?></option>
                                                 <?php } ?>
                                             </select>
+                                    </div>
+                                    <div class="form-group row">
+                                         <label class="col-sm-2 text-right col-form-label">Apakah sudah pelatihan NDT ? : </label>
+                                        <div class="col-md-10">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation1" name="ndt"  value="yes" required>
+                                                <label class="custom-control-label" for="customControlValidation1">Yes</label>
+                                            </div>
+                                             <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="customControlValidation2" value="no" name="ndt" required>
+                                                <label class="custom-control-label" for="customControlValidation2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 text-right col-form-label">Jika ya, sebutkan pelatihan NDT tersebut : </label>
+                                            <textarea class="form-control col-sm-10" name="deskripsi"></textarea>
                                     </div>
                                     </div> 
                                         <div class="border-top">
@@ -247,7 +265,6 @@
         }
     </script>
 
-=======
 <script type="text/javascript">
     var money = 0;
     function myFunction(e) {
@@ -255,4 +272,3 @@
         document.getElementById("kuota").value = $("option:selected", "#category").attr("data-kuota")
     }
 </script>
->>>>>>> 9b0a00792e1d71eff0f0f19e898832010de6fcce

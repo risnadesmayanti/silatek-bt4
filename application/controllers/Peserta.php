@@ -36,51 +36,30 @@ class Peserta extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function AddingIns()
+	public function AddingPeserta()
 	{
 
 		$i=0;
-		$id = 'INS'.rand();
-		$nama = $this->input->post('nama');
-		$tempat_lahir = $this->input->post('tempat_lahir');
-		$tgl_lahir = $this->input->post('tgl_lahir');
-		$image = $_FILES['image']['name'];
-		$alamat = $this->input->post('alamat');
-		$no_kontak = $this->input->post('no_kontak');
-		$asal_instansi = $this->input->post('asal_instansi');
-		$spesialisasi = $this->input->post('spesialisasi');
-		$ket = $this->input->post('ket');
- 		
- 		 // setting konfigurasi upload
-       	$config['upload_path'] = './upload/instruktur';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['overwrite'] = true;
-        $config['file_name'] = $id; 
-        $config['max_size']  = 1024; // 1MB
-        //$config['file_name'] = $id; 	 
-        // load library upload
-        $this->load->library('upload', $config);
-		// if(!$image){
-		// 	$image = "default.jpg";
-		// }
-		$this->upload->do_upload('image');
-		$result = $this->upload->data();
-             if(!$image){
-             	$image= 'default.jpg';
-             }else{
-             	$image = $this->upload->data('file_name');
-             }
+		$id = 'PST'.rand();
+		$nama = $this->input->post('nama_peserta');
+		$usia = $this->input->post('usia');
+		$gender = $this->input->post('gender');
+		$pendidikan = $this->input->post('pendidikan');
+		$jurusan = $this->input->post('jurusan');
+		$pelatihan = $this->input->post('pelatihan');
+		$ndt = $this->input->post('ndt');
+		$deskripsi = $this->input->post('deskripsi');
+
          $data = array(
 			'id' => $id,
 			'nama' => $nama,
-			'tempat_lahir' => $tempat_lahir,
-			'tgl_lahir' => $tgl_lahir,
-			'image' => $image,
-			'asal_instansi' => $asal_instansi,
-			'spesialisasi' => $spesialisasi,
-			'alamat' => $alamat,
-			'no_kontak' => $no_kontak,
-			'deskripsi' => $ket
+			'usia' => $usia,
+			'sex' => $gender,
+			'pendidikan' => $pendidikan,
+			'jurusan' => $jurusan,
+			'training' => $pelatihan,
+			'status_ndt' => $ndt,
+			'deskripsi' => $deskripsi
 			);
             echo "<pre>";
             print_r($data);
@@ -88,26 +67,27 @@ class Peserta extends CI_Controller {
             echo "</pre>";
 
             echo "<pre>";
-            print_r($result);
+            // print_r($result);
 
             echo "</pre>";
              // echo "lalala".$this->input->post('images');
             
 
-         $this->M_instruktur->addInstruktur($data);
-		redirect('/instruktur');
+         $this->M_peserta->AddPeserta($data);
+		redirect('/Peserta');
 
 	}
 
-	public function updateIns($id)
+	public function updatePeserta($id)
 	{
 		$where = array('id' => $id);
-		$data['instruktur'] = $this->M_instruktur->edit_data($where,'user')->result();
+		$data['peserta'] = $this->M_peserta->edit_data($where,'nama')->result();
 		$this->load->view('templates/header');
-		$this->load->view('instruktur/upd_ins',$data);
+		$this->load->view('peserta/upd_peserta',$data);
 		$this->load->view('templates/footer');
 		// print_r($data);
 	}
+
 
 
 	public function updatingIns($id)

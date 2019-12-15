@@ -21,7 +21,7 @@
 	  		return $res2;
 		}
 
-   		public function addPelatihan($data)
+   		public function addPeserta($data)
 		{
 
 			$this->db->insert($this->_table,$data);

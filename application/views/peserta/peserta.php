@@ -89,7 +89,7 @@
                                           <td style="text-align: center;">
                                             <!-- <a href="#" id="<?php //echo $key->id; ?>" class="btn btn-primary btn-mini view_data" title="Lihat Detail" data-toggle="modal" data-target="#myModal"><i class="icon icon-eye-open"></i></a> --> 
                                             
-                                            <a href="<?php echo base_url(). 'index.php/Pelatihan/updatePel/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="mdi mdi-eye"></i></a> 
+                                            <a href="<?php echo base_url(). 'index.php/Peserta/updatePeserta/'. $key->id?>" class="btn btn-success btn-mini" title="Lihat Detail"><i class="mdi mdi-eye"></i></a> 
                                             <!-- <button type="button" class="btn btn-success btn-mini" data-toggle="modal" data-target="#modal-tambah" title="Lihat Detail"><i class="icon icon-eye-open"></i></button> -->
                                             <!-- <a href="" data id="<?php //echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini view_data" data-toggle="modal" data-target="#modal-edit" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> -->
 

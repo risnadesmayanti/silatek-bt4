@@ -54,6 +54,8 @@
     <script src="<?php echo base_url(); ?>assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="<?php echo base_url(); ?>assets/extra-libs/multicheck/jquery.multicheck.js"></script>
     
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
     <script>
         /****************************************
          *       Basic Table                   *
@@ -191,7 +193,107 @@
          jQuery('#datepicker-autoclose2').datetimepicker();
 
     </script>
+    <script>
+        var randomScalingFactor = function() {
+            return Math.round(Math.random() * 100);
+        };
 
+        var config = {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.green,
+                        window.chartColors.blue,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    'Red',
+                    'Orange',
+                    'Yellow',
+                    'Green',
+                    'Blue'
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Doughnut Chart'
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myDoughnut = new Chart(ctx, config);
+        };    
+
+    </script>
+    <script>
+       var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12"],
+    datasets: [{
+      label: '# of Tomatoes',
+      data: [12, 19, 3, 5, 2, 3, 20, 3, 5, 6, 2, 1],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+  
+  }
+});
+    </script>
 
 </body>
 
