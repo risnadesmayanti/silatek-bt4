@@ -21,9 +21,7 @@ class Jadwal extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('jadwal', $data);
 		// $this->load->view('templates/footer');
-		 echo "<pre>";
-	     // print_r($data);
-		 echo "</pre>";
+	
 	}
 
 	public function get_events()

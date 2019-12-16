@@ -39,10 +39,10 @@
 			return $this->db->get_where($this->_table,$where);
 		}
 
-		public function deletePelatihanData($id)
+		public function deletePesertaData($id)
 		{
 
-			$this->db->where('trainingId', $id);
+			$this->db->where('id', $id);
 			$this->db->delete($this->_table);
 			// echo json_encode($data);
 		}

@@ -41,6 +41,8 @@
     <script src="<?php echo base_url(); ?>assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/dist/js/Chart.bundle.min.js"></script> -->
+    <!-- <script src="<?php echo base_url(); ?>assets/dist/js/Chart.bundle.js"></script> -->
     <script src="<?php echo base_url(); ?>assets/extra-libs/DataTables/datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/libs/select2/dist/js/select2.full.min.js"></script>
@@ -53,9 +55,9 @@
     <script src="<?php echo base_url(); ?>assets/js-extra/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
     <script src="<?php echo base_url(); ?>assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+    
     <script>
         /****************************************
          *       Basic Table                   *

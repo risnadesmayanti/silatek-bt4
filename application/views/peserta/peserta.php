@@ -93,7 +93,7 @@
                                             <!-- <button type="button" class="btn btn-success btn-mini" data-toggle="modal" data-target="#modal-tambah" title="Lihat Detail"><i class="icon icon-eye-open"></i></button> -->
                                             <!-- <a href="" data id="<?php //echo base_url(). 'index.php/Instruktur/updateIns/'. $key->id?>" class="btn btn-success btn-mini view_data" data-toggle="modal" data-target="#modal-edit" title="Lihat Detail"><i class="icon icon-eye-open"></i></a> -->
 
-                                            <a href="<?php echo base_url(). 'index.php/Pelatihan/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="mdi mdi-delete"></i></a>
+                                            <a href="<?php echo base_url(). 'index.php/Peserta/delete/'. $key->id; ?>" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger btn-mini" title="Hapus Data"><i class="mdi mdi-delete"></i></a>
                                           </td>
                                         </tr>
                                        <?php $i++;} ?>

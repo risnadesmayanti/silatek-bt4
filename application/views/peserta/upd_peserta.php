@@ -47,44 +47,45 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <form action="<?php echo base_url(). 'index.php/Peserta/AddingPeserta'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <?php foreach($peserta as $i){ ?>
+                            <form action="<?php echo base_url(). 'index.php/Peserta/updatingPeserta/'.$i->id; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <h4 class="card-title">Informasi Peserta</h4>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Nama Peserta : </label>
-                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Peserta" name="nama_peserta">
+                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Peserta" name="nama_peserta" value="<?php echo $i->nama; ?>"  readonly="true" ondblclick="this.readOnly='';">
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Usia </label>
-                                           <input type="number" class="form-control col-sm-10" placeholder="Isi Usia Peserta" name="usia"> 
+                                           <input type="number" class="form-control col-sm-10" placeholder="Isi Usia Peserta" name="usia" value="<?php echo $i->usia; ?>"  readonly="true" ondblclick="this.readOnly='';"> 
                                     </div>                                   
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label"> Jenis Kelamin :</label>
-                                        <select id="category" class="form-control form-white col-sm-10 select2 custom-select" name="gender" onchange="myFunction(event)">
-                                                <option disabled selected>Choose Gender Type</option>
-                                                <option value="laki-laki">Laki-laki</option>
-                                                <option value="perempuan">Perempuan</option>
+                                        <select id="category" class="form-control form-white col-sm-10 select2 custom-select" name="gender" onchange="myFunction(event)" readonly="true" ondblclick="this.readOnly='';">
+                                                <option value="<?php echo $i->sex; ?>" disabled><?php echo $i->sex; ?></option>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
                                             </select>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Pendidikan Terakhir : </label>
                                             <select id="pendidikan" class="form-control form-white col-sm-10 select2 custom-select" name="pendidikan" onchange="myFunction(event)">
-                                                <option disabled selected>Pilih pendidikan terakhir ... </option>
-                                                <option value="sma">SMA/SMK Sederajat</option>
-                                                <option value="diploma">Diploma III</option>
-                                                <option value="sarjana">Sarjana</option>
-                                                <option value="magister">Magister</option>
-                                                <option value="doktor">Doktoral</option>
+                                                <option value="<?php echo $i->pendidikan; ?>" selected><?php echo $i->pendidikan; ?></option>
+                                                <option value="SMA">SMA/SMK Sederajat</option>
+                                                <option value="Diploma">Diploma III</option>
+                                                <option value="Sarjana">Sarjana</option>
+                                                <option value="Magister">Magister</option>
+                                                <option value="Doktor">Doktoral</option>
                                             </select>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Asal Jurusan : </label>
-                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Jurusan Keilmuan yang terakhir diambil" name="jurusan">
+                                            <input type="text" class="form-control col-sm-10" placeholder="Isi Nama Jurusan Keilmuan yang terakhir diambil" name="jurusan" value="<?php echo $i->jurusan; ?>"  readonly="true" ondblclick="this.readOnly='';">
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Daftar Pelatihan : </label>
                                             <select id="pelatihan" class="form-control form-white col-sm-10 custom-select" name="pelatihan" onchange="myFunction(event)">
-                                                <option disabled selected>Pilih pelatihan yang diambil ... </option>
+                                                <option value="<?php echo $i->training; ?>" selected><?php echo $i->training; ?></option>
                                                 <?php foreach ($training as $key) { ?>
                                                 <option value="<?php echo $key->name; ?>"><?php echo $key->name; ?></option>
                                                 <?php } ?>
@@ -93,26 +94,30 @@
                                     <div class="form-group row">
                                          <label class="col-sm-2 text-right col-form-label">Apakah sudah pelatihan NDT ? : </label>
                                         <div class="col-md-10">
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="customControlValidation1" name="ndt"  value="yes" required>
-                                                <label class="custom-control-label" for="customControlValidation1">Yes</label>
-                                            </div>
-                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="customControlValidation2" value="no" name="ndt" required>
-                                                <label class="custom-control-label" for="customControlValidation2">No</label>
-                                            </div>
+                                            <select id="ndt" class="form-control form-white col-sm-10 select2 custom-select" name="ndt" onchange="myFunction(event)">
+                                                <option value="<?php echo $i->status_ndt; ?>" selected><?php if ($i->status_ndt == '0') {
+                                                    echo "Tidak";
+                                                }else {
+                                                    echo "Ya";
+                                                }  ?>
+                                                   
+                                                </option>
+                                                <option value="Ya">Ya</option>
+                                                <option value="Tidak">Tidak</option>
+                                            </select>
                                         </div>
                                     </div>
                                         
                                     <div class="form-group row">
                                         <label class="col-sm-2 text-right col-form-label">Jika ya, sebutkan pelatihan NDT tersebut : </label>
-                                            <textarea class="form-control col-sm-10" name="deskripsi"></textarea>
+                                            <textarea class="form-control col-sm-10" name="deskripsi" value="<?php echo $i->deskripsi; ?>"  readonly="true" ondblclick="this.readOnly='';"></textarea>
                                     </div>
                                     </div> 
                                         <div class="border-top">
                                             <div class="card-body">
-                                                <a href="<?php echo base_url('index.php/instruktur'); ?>" class="btn btn-danger ">Cancel</a>
+                                                <a href="<?php echo base_url('index.php/Peserta'); ?>" class="btn btn-danger ">Cancel</a>
                                                 <button type="submit" class="btn btn-success">Save</button>
+                                            <?php } ?>
                                             </div>
                                         </div>
                                     
@@ -124,114 +129,7 @@
                     
                 </div>
                 </form> 
-                <!-- Modal Add Category -->
-                <div class="modal fade none-border" id="add-new-event">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><strong>Add</strong> a category</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- <form action="<?php// echo base_url(). 'index.php/Jadwal/addingToJadwal'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data"> -->
-                                    <div class="row">
-                                         <div class="col">
-                                        <div class="card-body b-l calender-sidebar">
-                                            <div id="calendar"></div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">Save</button>
-                                </form>
-                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal Add Category -->
-                <div class="modal fade none-border" id="add-peserta">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title"><strong>Pilih Peserta Pelatihan</strong></h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <!-- <form action="<?php// echo base_url(). 'index.php/Jadwal/addingToJadwal'; ?>" method="POST" class="form-horizontal" enctype="multipart/form-data"> -->
-                                    <div class="form-group row">
-                                         <div class="col">
-                                          <div class="card-body b-l">
-
-                                            
-                                        
-                                <table>
-                                    <tr>
-                                        <td><label class="customcheckbox m-b-20 form-label">
-                                    <input type="checkbox" id="mainCheckbox" />
-                                    <span class="checkmark"></span>
-                                
-                                </label></td>
-                                <td>Pilih semua di page ini</td>
-                                    </tr>
-                                </table>
-                                        <div class="table-responsive">
-
-                                    <table class="table" id="zero_config>
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>#</th>
-                                                <th scope="col">Nomor Peserta</th>
-                                                <th scope="col">Nama Peserta</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody class="customtable">
-                                            <tr>
-                                                <th>
-                                                    <label class="customcheckbox">
-                                                        <input type="checkbox" class="listCheckbox" />
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </th>
-                                                <td>Trident</td>
-                                                <td>Internet Explorer 4.0</td>
-                                               
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <br>
-                                 <div class="row" style="justify-content: center;">
-                                    <div class="col-md-4">
-                                        <nav aria-label="Page navigation example">
-                                              <ul class="pagination">
-                                                <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li> -->
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <!-- <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
-                                              </ul>
-                                        </nav>
-                                    </div>
-                                          </div>
-                                    </div>
-                                    </div>
-                                    
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">Save</button>
-                                </form>
-                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                 
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
