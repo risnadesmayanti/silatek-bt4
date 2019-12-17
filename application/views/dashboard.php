@@ -1,4 +1,5 @@
  <!-- Page wrapper  -->
+
         <!-- ============================================================== -->
         <div class="page-wrapper">
             <!-- ============================================================== -->
@@ -89,7 +90,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Distribusi Peserta</h5>
-                                <div class="pie" style="height: 400px;"></div>
+                                <!-- <div id="canvas-holder" style="height: 400px;"></div> -->
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area"></canvas>
+                               
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +102,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Jumlah Pelatihan / Bulan</h5>
-                                <div class="bars" style="height: 400px;"></div>
+                                <canvas id="myChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -106,3 +111,92 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
+ <script>
+       var cData = JSON.parse('<?php echo $chart_data; ?>');
+        var randomScalingFactor = function() {
+            return Math.round(Math.random() * 100);
+        };
+
+        var config = {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: cData.data,
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.green,
+                        window.chartColors.blue,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: cData.label
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: false
+                },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myDoughnut = new Chart(ctx, config);
+        };    
+
+    </script>
+    <script>
+       var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12"],
+    datasets: [{
+      label: '# of Tomatoes',
+      data: [12, 19, 3, 5, 2, 3, 20, 3, 5, 6, 2, 1],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+  
+  }
+});
+    </script>

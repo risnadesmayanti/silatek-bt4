@@ -33,6 +33,19 @@
 		    return $this->db->where("start_date >=", $start)->where("end_date <=", $end)->get($this->_table);
 		}	
 
+		public function getJadwalBulanan()
+		{
+			// SELECT MONTH(start) AS bulan, COUNT(*) AS jumlah_bulanan FROM tb_jadwal GROUP BY MONTH(start)
+			$query = $this->db->query("SELECT MONTH(start) AS bulan, COUNT(*) AS jumlah_bulanan FROM tb_jadwal GROUP BY MONTH(start)");
+
+			 if($query->num_rows() > 0){
+	            foreach($query->result() as $data){
+	                $hasil[] = $data;
+	            }
+	            return $hasil;
+	        }
+		}
+
 		public function getJadwalPelatihan()
 		{
 			$this->db->select('*');

@@ -161,7 +161,9 @@ class Pelatihan extends CI_Controller {
 	{
 		$where = array('trainingId' => $id);
 		$where2 = array('id_pelatihan' => $id);
-
+		
+		$data['training'] = $this->M_training->edit_data($where,'user')->result();
+		$data['jadwal'] = $this->M_jadwal->edit_data($where2,'user')->result();
 		$data['pelatihan'] = $this->M_jadwal->getJadwalPelatihan();
 
 
@@ -173,16 +175,11 @@ class Pelatihan extends CI_Controller {
             $data['data'][$key]['id'] = $value->id;
         }
 
-		$data['training'] = $this->M_training->edit_data($where,'user')->result();
-		$data['jadwal'] = $this->M_jadwal->edit_data($where2,'user')->result();
-
 		// $data['pelatihan'] = $this->M_pelatihan->edit_data($where,'user')->result();
 		$this->load->view('templates/header');
 		$this->load->view('pelatihan/upd_pelatihan',$data);
 		$this->load->view('templates/footer');
-		//  echo "<pre>";
 		// print_r($data);
-		//  echo "</pre>";
 	}
 
 	public function updatingPel($id)

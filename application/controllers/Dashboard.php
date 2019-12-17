@@ -6,9 +6,34 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		$training= $this->M_peserta->getByPelatihan();
+
+		$data = [];
+ 
+      foreach($training as $row) {
+            $data['label'][] = $row->training;
+            $data['data'][] = $row->jumlah_peserta;
+      }
+      $data['chart_data'] = json_encode($data);
+      
 		$this->load->view('templates/header');
-		$this->load->view('dashboard');
+		$this->load->view('dashboard',$data);
 		$this->load->view('templates/footer');
+	}
+
+	public function chart()
+	{
+		$data['train'] = $this->M_peserta->getByPelatihan();
+		$data['jadwal'] = $this->M_jadwal->getJadwalBulanan();
+		// foreach ($data['train'] as $key => $value) {
+  //           // $pelatihan[] = $key->training;
+          
+		// 	$data['data'][$key]['jumlah_peserta'] = $value->jumlah_peserta;
+ 
+  //       }
+
+
+        // echo json_encode($data);
 	}
 	
 

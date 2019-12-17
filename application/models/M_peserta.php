@@ -21,6 +21,18 @@
 	  		return $res2;
 		}
 
+		public function getByPelatihan()
+		{
+			$query = $this->db->query("SELECT training, count(training) AS jumlah_peserta FROM peserta GROUP BY training");
+          
+	        if($query->num_rows() > 0){
+	            foreach($query->result() as $data){
+	                $hasil[] = $data;
+	            }
+	            return $hasil;
+	        }
+		}
+
    		public function addPeserta($data)
 		{
 

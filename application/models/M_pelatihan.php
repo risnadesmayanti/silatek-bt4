@@ -21,6 +21,9 @@
 	  		return $res2;
 		}
 
+		
+
+
    		public function addPelatihan($data)
 		{
 
