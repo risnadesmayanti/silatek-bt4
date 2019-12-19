@@ -121,7 +121,7 @@
             type: 'doughnut',
             data: {
                 datasets: [{
-                    data: cData.data,
+                    data: cData.data1,
                     backgroundColor: [
                         window.chartColors.red,
                         window.chartColors.orange,
@@ -131,7 +131,7 @@
                     ],
                     label: 'Dataset 1'
                 }],
-                labels: cData.label
+                labels: cData.label1
             },
             options: {
                 responsive: true,
@@ -155,14 +155,15 @@
 
     </script>
     <script>
+       var cData = JSON.parse('<?php echo $chart_data; ?>');
        var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["2015-01", "2015-02", "2015-03", "2015-04", "2015-05", "2015-06", "2015-07", "2015-08", "2015-09", "2015-10", "2015-11", "2015-12"],
+    labels: cData.label2,
     datasets: [{
-      label: '# of Tomatoes',
-      data: [12, 19, 3, 5, 2, 3, 20, 3, 5, 6, 2, 1],
+      label: 'Data per Bulan',
+      data: cData.data2,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -196,7 +197,17 @@ var myChart = new Chart(ctx, {
   },
   options: {
     responsive: true,
-  
+    scales: {
+            yAxes: [{
+                id:'main-axis',
+                ticks: {
+                     beginAtZero:true,
+                     stepSize: 1, // this worked as expected
+                     maxTicksLimit: 10
+                        }
+                   }],
+         
+        }
   }
 });
     </script>

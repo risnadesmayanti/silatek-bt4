@@ -36,7 +36,7 @@
 		public function getJadwalBulanan()
 		{
 			// SELECT MONTH(start) AS bulan, COUNT(*) AS jumlah_bulanan FROM tb_jadwal GROUP BY MONTH(start)
-			$query = $this->db->query("SELECT MONTH(start) AS bulan, COUNT(*) AS jumlah_bulanan FROM tb_jadwal GROUP BY MONTH(start)");
+			$query = $this->db->query("SELECT MONTH(start) AS bulan, COUNT(*) AS jumlah_bulanan FROM tb_jadwal GROUP BY MONTH(start) ORDER BY YEAR(start)");
 
 			 if($query->num_rows() > 0){
 	            foreach($query->result() as $data){
