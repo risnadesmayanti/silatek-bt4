@@ -13,7 +13,6 @@ class Auth extends CI_Controller {
 		if($get['appkey'] == APP_KEY){
 			$requestEmployee = $this->get_curl('https://login.b4t.go.id/Api/employee?nip='.$get['nip'].'&appkey='.APP_KEY);
 			$requestEmployee = json_decode($requestEmployee,TRUE);
-			print_r($requestEmployee);
 			$session = [
 				'nip'  => $get['nip'],
 				'username' => $requestEmployee['username'],
