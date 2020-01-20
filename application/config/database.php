@@ -75,10 +75,10 @@ $query_builder = TRUE;
 if(ENVIRONMENT == 'development'){
 	$db['default'] = array(
 		'dsn'	=> '',
-		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'database' => 'db_silatek',
+		'hostname' => 'cloud.b4t.go.id',
+		'username' => 'superman',
+		'password' => 'Super@b4tb4t#!',
+		'database' => 'silatek',		
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => FALSE,

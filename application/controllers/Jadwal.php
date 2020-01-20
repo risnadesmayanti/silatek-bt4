@@ -23,7 +23,10 @@ class Jadwal extends CI_Controller {
 		// $this->load->view('templates/footer');
 	
 	}
-
+	public function getSchedules(){
+		$data = $this->M_jadwal->getJadwalPelatihan();
+		echo json_encode($data);
+	}
 	public function get_events()
 	 {
 	     // Our Start and End Dates

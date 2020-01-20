@@ -23,7 +23,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://silatek.b4t.go.id/';
+if(isset($_SERVER["HTTP_X_FORWARDED_PROTO"])){
+	$http = $_SERVER["HTTP_X_FORWARDED_PROTO"];
+}else{
+	if($_SERVER["REQUEST_SCHEME"]){
+		$http = $_SERVER["REQUEST_SCHEME"];
+	}else{
+		$http = "https";
+	}
+}
+
+if(getenv("BASE_URL")){
+    $config['base_url'] = $http."://".$_SERVER["HTTP_HOST"];
+}else{   
+    if(isset($_SERVER["HTTP_HOST"]) && strtolower($_SERVER["HTTP_HOST"]) ==  "localhost" && !isset($_ENV["OPENSHIFT_GEAR_DNS"])){
+        $config['base_url'] = $http.'://localhost/'.basename(dirname(dirname(__DIR__)));
+    }else if(isset($_SERVER["SERVER_NAME"]) && isset($_ENV["OPENSHIFT_GEAR_DNS"])){
+        $config['base_url'] = $http.'://'.$_SERVER["SERVER_NAME"];
+    }else{
+        $config['base_url'] = null;
+    }
+} 
 
 /*
 |--------------------------------------------------------------------------
