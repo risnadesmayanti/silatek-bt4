@@ -29,7 +29,7 @@ class Peserta extends CI_Controller {
 	public function AddPeserta()
 	{
 		// $data['pelatihan'] = $this->M_jadwal->getAll();
-		$data['training'] = $this->M_training->getAll();
+		$data['training'] = $this->M_jadwal->getJadwalPelatihan();
 
 		$this->load->view('templates/header');
 		$this->load->view('peserta/add_peserta', $data);
@@ -46,24 +46,31 @@ class Peserta extends CI_Controller {
 		$gender = $this->input->post('gender');
 		$pendidikan = $this->input->post('pendidikan');
 		$jurusan = $this->input->post('jurusan');
-		$pelatihan = $this->input->post('pelatihan');
+		$idpelatihan = $this->input->post('pelatihan');
 		$ndt = $this->input->post('ndt');
 		$deskripsi = $this->input->post('deskripsi');
 
+		$training = $this->M_training->getSelectedName($idpelatihan);
+		foreach ($training as $array => $row)
+		{
+		    // print_r($row);
+		    $train = $row->name;
+
+		} 
          $data = array(
 			'id' => $id,
+			'id_training' => $idpelatihan,
 			'nama' => $nama,
 			'usia' => $usia,
 			'sex' => $gender,
 			'pendidikan' => $pendidikan,
 			'jurusan' => $jurusan,
-			'training' => $pelatihan,
+			'training' => $train,
 			'status_ndt' => $ndt,
 			'deskripsi' => $deskripsi
 			);
             echo "<pre>";
             print_r($data);
-
             echo "</pre>";
 
             echo "<pre>";

@@ -71,7 +71,7 @@
                                     </div>
                                        <div class="form-group row">
                                           <label class="col-sm-2 text-right col-form-label">No Kontak : </label>
-                                              <input type="text" class="form-control col-sm-10" placeholder="Contoh : 085xxxxx" name="no_kontak">
+                                              <input type="text" class="form-control col-sm-10" placeholder="Contoh : Bandung" name="no_kontak">
                                       </div>  
                                     <div class="form-group row">
                                     <label class="col-sm-2 text-right col-form-label">Upload Foto : </label>

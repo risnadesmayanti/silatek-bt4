@@ -86,7 +86,9 @@
                                             <select id="pelatihan" class="form-control form-white col-sm-10 custom-select" name="pelatihan" onchange="myFunction(event)">
                                                 <option disabled selected>Pilih pelatihan yang diambil ... </option>
                                                 <?php foreach ($training as $key) { ?>
-                                                <option value="<?php echo $key->name; ?>"><?php echo $key->name; ?></option>
+                                                <option value="<?php echo $key->trainingId; ?>"><?php echo $key->name; ?> - <?php 
+                                                $date = date_create($key->start);
+                                                echo date_format($date, 'd/m/Y H:i:s'); ?></option>
                                                 <?php } ?>
                                             </select>
                                     </div>

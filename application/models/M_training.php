@@ -21,6 +21,16 @@
 	  		return $res2;
 		}
 
+		public function getSelectedName($id)
+		{
+			$this->db->select('name');
+		    $this->db->from($this->_table);
+		    $this->db->where('trainingId',$id);
+		    $res2 = $this->db->get();
+	  		return $res2->result();
+		}
+
+
 		public function addPelatihan($data)
 		{
 
