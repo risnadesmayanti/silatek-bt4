@@ -24,7 +24,7 @@ class Pelatihan extends CI_Controller {
 
 	
 	public function detail($id){
-		$data = $this->M_instruktur->getSelected(array('id' => $id));
+		$data = $this->M_training->getSelected($id)->row();
         echo json_encode($data);
 	}
 
