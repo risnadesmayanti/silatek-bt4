@@ -175,7 +175,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Peserta'); ?>" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Daftar Peserta</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Instruktur'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Daftar Instruktur</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Silabus'); ?>" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Daftar Silabus</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Rekapitulasi'); ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Rekapitulasi</span></a></li>
+                        <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo base_url('Rekapitulasi'); ?>" aria-expanded="false"><i class="mdi mdi-cash-multiple"></i><span class="hide-menu">Rekapitulasi</span></a></li> -->
                         
                     </ul>
                 </nav>
